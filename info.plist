@@ -8,11 +8,11 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>0CDDB2AB-50E6-4050-8DCD-842D65A0E4A0</key>
+		<key>A9F2B54F-7805-4172-8BFA-61AF06343DDD</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>47E07782-DA18-44A1-99A0-8AAB2BDDE795</string>
+				<string>EE85E83F-6D28-46B6-9322-252EF5CC7359</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -21,11 +21,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>47E07782-DA18-44A1-99A0-8AAB2BDDE795</key>
+		<key>D532CFC0-EE6B-47C6-85D8-24CD3EA1302B</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>A05F2356-BC52-4804-AFBB-962127B55900</string>
+				<string>A9F2B54F-7805-4172-8BFA-61AF06343DDD</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -38,13 +38,62 @@
 	<key>createdby</key>
 	<string>Shura Vlasov</string>
 	<key>description</key>
-	<string>Learn how to connect a keyword to different actions and outputs</string>
+	<string></string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
 	<string>Time calculator</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tc</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node index.js "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Calculate time</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A9F2B54F-7805-4172-8BFA-61AF06343DDD</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -60,7 +109,7 @@
 			<key>type</key>
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
-			<string>A05F2356-BC52-4804-AFBB-962127B55900</string>
+			<string>EE85E83F-6D28-46B6-9322-252EF5CC7359</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -91,93 +140,44 @@
 			<key>type</key>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>0CDDB2AB-50E6-4050-8DCD-842D65A0E4A0</string>
+			<string>D532CFC0-EE6B-47C6-85D8-24CD3EA1302B</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>keyword</key>
-				<string>tcalc</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js "$1"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string></string>
-				<key>type</key>
-				<integer>7</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>47E07782-DA18-44A1-99A0-8AAB2BDDE795</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
 	</array>
 	<key>readme</key>
-	<string>Keywords are one of Alfred's most commonly used and most useful ways of launching actions. Set a keyword and connect it to the action(s) you want to perform.
-
-Type your keyword into Alfred, followed by your input text if needed, and you'll be on your way to boosting your productivity!</string>
+	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>0CDDB2AB-50E6-4050-8DCD-842D65A0E4A0</key>
+		<key>A9F2B54F-7805-4172-8BFA-61AF06343DDD</key>
 		<dict>
 			<key>xpos</key>
-			<real>30</real>
+			<real>230</real>
 			<key>ypos</key>
-			<real>70</real>
+			<real>105</real>
 		</dict>
-		<key>47E07782-DA18-44A1-99A0-8AAB2BDDE795</key>
+		<key>D532CFC0-EE6B-47C6-85D8-24CD3EA1302B</key>
 		<dict>
 			<key>xpos</key>
-			<real>195</real>
+			<real>65</real>
 			<key>ypos</key>
-			<real>70</real>
+			<real>105</real>
 		</dict>
-		<key>A05F2356-BC52-4804-AFBB-962127B55900</key>
+		<key>EE85E83F-6D28-46B6-9322-252EF5CC7359</key>
 		<dict>
 			<key>xpos</key>
-			<real>380</real>
+			<real>390</real>
 			<key>ypos</key>
-			<real>70</real>
+			<real>105</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
 	<array/>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.0.0</string>
 	<key>webaddress</key>
-	<string>https://www.alfredapp.com</string>
+	<string>https://github.com/shura-v/alfred-time-calculator</string>
 </dict>
 </plist>

@@ -1,0 +1,8 @@
+{
+  "generator-alfred": {
+    "promptValues": {
+      "githubUsername": "shura-v",
+      "website": "https://github.com/shura-v/alfred-time-calculator"
+    }
+  }
+}
