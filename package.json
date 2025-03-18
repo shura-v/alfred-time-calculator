@@ -1,7 +1,7 @@
 {
   "name": "alfred-time-calculator",
   "type": "module",
-  "version": "0.0.4",
+  "version": "2.0.0",
   "description": "Alfred workflow for calculating time expressions and durations",
   "license": "MIT",
   "repository": {
@@ -16,33 +16,24 @@
     "node": ">=16"
   },
   "scripts": {
-    "test": "xo && ava",
-    "postinstall": "alfy-init",
-    "preuninstall": "alfy-cleanup"
+    "build": "node ./build",
+    "test": "ava"
   },
   "files": [
-    "index.js",
+    "main.js",
     "info.plist",
     "icon.png"
   ],
   "keywords": [
     "alfred",
     "workflow",
-    "time",
-    "alfy"
+    "time"
   ],
   "dependencies": {
-    "alfy": "^2.1.0",
     "ms": "^2.1.3"
   },
   "devDependencies": {
-    "alfy-test": "^0.4.2",
     "ava": "^6.2.0",
-    "xo": "^0.60.0"
-  },
-  "xo": {
-    "rules": {
-      "no-eval": "off"
-    }
+    "esbuild": "^0.25.1"
   }
 }
