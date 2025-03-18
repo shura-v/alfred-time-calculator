@@ -36,7 +36,7 @@ This Alfred workflow allows you to **convert time expressions** like `"1h + 30m"
 ---
 
 ## **🛠 Installation & Setup**
-1. **Download the Workflow** (`Time Calculator.alfredworkflow`)
+1. **[Download](https://github.com/shura-v/alfred-time-calculator/releases) the Workflow** (`Time Calculator.alfredworkflow`)
 2. Open it in **Alfred Preferences → Workflows**
 3. Set the **keyword** to `"tc"` (already pre-configured)
 4. You're ready to go! 🚀
