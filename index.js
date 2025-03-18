@@ -24,8 +24,8 @@ function humanizeDuration(seconds) {
 }
 
 function calculate(value) {
-    const expression = value.replaceAll(/(\d+\.?\d*[a-zA-Z]+)/g, match => {
-        const milliseconds = ms(match.trim());
+    const expression = value.toLowerCase().replaceAll(/(\d+\.?\d*[a-z]+)/g, match => {
+        const milliseconds = ms(match);
         return Number.isNaN(milliseconds) ? match : milliseconds / 1000;
     });
 
@@ -37,11 +37,17 @@ function calculate(value) {
     }
 }
 
+const INVALID_RESULT = [{title: 'Invalid input', subtitle: 'Try something like "1h + 30m"'}];
+
 export function getOutput(query) {
-    const result = calculate(query);
+    const trimmedQuery = query.trim();
+    if (!trimmedQuery) {
+        return {items: INVALID_RESULT};
+    }
+    const result = calculate(query.trim());
     return {
         items: result === null
-            ? [{title: 'Invalid input', subtitle: 'Try something like "1h + 30m"'}]
+            ? INVALID_RESULT
             : [{title: result, subtitle: 'Press Enter to copy', arg: result}]
     };
 }

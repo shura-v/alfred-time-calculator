@@ -153,11 +153,12 @@ __export(index_exports, {
 });
 module.exports = __toCommonJS(index_exports);
 var import_ms = __toESM(require_ms(), 1);
-var formatSeconds = (number_) => new Intl.NumberFormat("en-US", {
+var formatSeconds = (x) => new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 0,
   maximumFractionDigits: 3
-}).format(number_);
+}).format(x);
 function humanizeDuration(seconds) {
+  console.log(seconds);
   if (Number.isNaN(seconds)) {
     throw new TypeError("second argument must be a number");
   }
@@ -165,16 +166,11 @@ function humanizeDuration(seconds) {
   const h = Math.floor(seconds % 86400 / 3600);
   const m = Math.floor(seconds % 3600 / 60);
   const s = seconds % 60;
-  return [
-    d > 0 ? `${d} day${d > 1 ? "s" : ""}` : "",
-    h > 0 ? `${h} hour${h > 1 ? "s" : ""}` : "",
-    m > 0 ? `${m} minute${m > 1 ? "s" : ""}` : "",
-    s === 0 ? "" : `${formatSeconds(s)} second${s > 1 ? "s" : ""}`
-  ].filter(Boolean).join(", ");
+  return [d > 0 ? `${d} day${d > 1 ? "s" : ""}` : "", h > 0 ? `${h} hour${h > 1 ? "s" : ""}` : "", m > 0 ? `${m} minute${m > 1 ? "s" : ""}` : "", s === 0 ? "" : `${formatSeconds(s)} second${s > 1 ? "s" : ""}`].filter(Boolean).join(", ");
 }
 function calculate(value) {
-  const expression = value.replaceAll(/(\d+\.?\d*[a-zA-Z]+)/g, (match) => {
-    const milliseconds = (0, import_ms.default)(match.trim());
+  const expression = value.toLowerCase().replaceAll(/(\d+\.?\d*[a-z]+)/g, (match) => {
+    const milliseconds = (0, import_ms.default)(match);
     return Number.isNaN(milliseconds) ? match : milliseconds / 1e3;
   });
   try {
@@ -184,10 +180,15 @@ function calculate(value) {
     return null;
   }
 }
+var INVALID_RESULT = [{ title: "Invalid input", subtitle: 'Try something like "1h + 30m"' }];
 function getOutput(query) {
-  const result = calculate(query);
+  const trimmedQuery = query.trim();
+  if (!trimmedQuery) {
+    return { items: INVALID_RESULT };
+  }
+  const result = calculate(query.trim());
   return {
-    items: result === null ? [{ title: "Invalid input", subtitle: 'Try something like "1h + 30m"' }] : [{ title: result, subtitle: "Press Enter to copy", arg: result }]
+    items: result === null ? INVALID_RESULT : [{ title: result, subtitle: "Press Enter to copy", arg: result }]
   };
 }
 function run() {
