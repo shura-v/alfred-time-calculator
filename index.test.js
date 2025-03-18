@@ -1,4 +1,4 @@
-import test from 'ava';
+import t from "assert";
 import { getOutput } from './index.js'
 
 
@@ -11,13 +11,9 @@ const cases = [
 ];
 
 for (const [input, output] of cases) {
-    test(`success: ${input} → ${output}`, async t => {
-        const result = getOutput(input).items;
-        t.deepEqual(result, [{title: output, subtitle: 'Press Enter to copy', arg: output}]);
-    });
+    const result = getOutput(input).items;
+    t.deepStrictEqual(result, [{title: output, subtitle: 'Press Enter to copy', arg: output}]);
 }
 
-test('error', async t => {
-    const [item] = getOutput("1test").items;
-    t.is(item.title, 'Invalid input');
-});
+const [item] = getOutput("1test").items;
+t.equal(item.title, 'Invalid input');
