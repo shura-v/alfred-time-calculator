@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "strict": true,
+    "module": "Node16",
+    "declaration": true,
+    "esModuleInterop": true
+  },
+  "files": ["index.ts"]
+}

@@ -1,11 +1,21 @@
-import ms from 'ms';
+import ms, { StringValue } from 'ms';
 
-const formatSeconds = x => new Intl.NumberFormat('en-US', {
+type TimeCalculatorResult = {
+    items: TimeCalculatorResultItem[];
+}
+
+type TimeCalculatorResultItem = {
+    title: string;
+    subtitle: string;
+    arg?: string;
+}
+
+const formatSeconds = (x: number) => new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 0,
     maximumFractionDigits: 3,
 }).format(x);
 
-function humanizeDuration(seconds) {
+function humanizeDuration(seconds: number) {
     if (Number.isNaN(seconds)) {
         throw new TypeError('second argument must be a number');
     }
@@ -23,10 +33,10 @@ function humanizeDuration(seconds) {
     ].filter(Boolean).join(', ');
 }
 
-export function calculate(value) {
-    const expression = value.toLowerCase().replaceAll(/(\d+\.?\d*[a-z]+)/g, match => {
-        const milliseconds = ms(match);
-        return Number.isNaN(milliseconds) ? match : milliseconds / 1000;
+export function calculate(value: string): string | null {
+    const expression = value.toLowerCase().replaceAll(/(\d+\.?\d*[a-z]+)/g, (match) => {
+        const milliseconds = ms(match as StringValue);
+        return Number.isNaN(milliseconds) ? match : String(milliseconds / 1000);
     });
 
     try {
@@ -37,13 +47,16 @@ export function calculate(value) {
     }
 }
 
-const INVALID_ITEMS = [{title: 'Invalid input', subtitle: 'Try something like "1h + 30m"'}];
+const INVALID_ITEMS: TimeCalculatorResultItem[] = [{
+    title: 'Invalid input',
+    subtitle: 'Try something like "1h + 30m"'
+}];
 
-function toJSON(result) {
+function toJSON(result: TimeCalculatorResult) {
     return JSON.stringify(result);
 }
 
-export function run(argv) {
+export function run(argv: Array<string>): string {
     const query = argv[0]?.trim();
     if (!query) {
         return toJSON({ items: INVALID_ITEMS });

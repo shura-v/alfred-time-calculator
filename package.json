@@ -1,13 +1,12 @@
 {
   "name": "alfred-time-calculator",
   "type": "module",
-  "version": "2.1.3",
+  "version": "2.2.5",
   "description": "Alfred workflow for calculating time expressions and durations",
   "license": "MIT",
   "repository": {
-    "url": "git+https://github.com/shura-v/alfred-time-calculator"
+    "url": "git+https://github.com/shura-v/alfred-time-calculator.git"
   },
-  "main": "index.js",
   "author": {
     "name": "Shura Vlasov",
     "url": "github.com/shura-v"
@@ -16,9 +15,19 @@
     "node": ">=16"
   },
   "scripts": {
-    "build": "node ./build",
-    "test": "node ./index.test"
+    "build": "rimraf ./dist && node ./build",
+    "postbuild": "tsc --emitDeclarationOnly && chmod +x dist/cli.js",
+    "test": "vitest",
+    "prepublishOnly": "pnpm test && pnpm build"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "tc": "dist/cli.js"
+  },
+  "files": [
+    "dist/**"
+  ],
   "keywords": [
     "alfred",
     "workflow",
@@ -28,7 +37,11 @@
     "ms": "^2.1.3"
   },
   "devDependencies": {
+    "@types/ms": "^2.1.0",
     "@types/node": "^22.13.10",
-    "esbuild": "^0.25.1"
+    "esbuild": "^0.25.1",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
   }
 }

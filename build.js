@@ -1,11 +1,11 @@
 import {build} from 'esbuild';
 
 build({
-	entryPoints: ['index.js'],
+	entryPoints: ["index.ts", "cli.ts"],
+	target: "node16",
 	platform: 'node',
+	format: "esm",
 	bundle: true,
-	outfile: 'main.js',
-	banner: {
-		js: 'var module = {};',
-	},
+	tsconfig: "./tsconfig.json",
+	outdir: 'dist'
 }).catch(console.error);
