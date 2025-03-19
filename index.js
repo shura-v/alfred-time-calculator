@@ -23,7 +23,7 @@ function humanizeDuration(seconds) {
     ].filter(Boolean).join(', ');
 }
 
-function calculate(value) {
+export function calculate(value) {
     const expression = value.toLowerCase().replaceAll(/(\d+\.?\d*[a-z]+)/g, match => {
         const milliseconds = ms(match);
         return Number.isNaN(milliseconds) ? match : milliseconds / 1000;
