@@ -1,7 +1,7 @@
 import {build} from 'esbuild';
 
 build({
-	entryPoints: ["index.ts", "cli.ts"],
+	entryPoints: ["./src/index.ts", "./src/cli.ts"],
 	target: "node16",
 	platform: 'node',
 	format: "esm",
