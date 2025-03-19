@@ -46,7 +46,7 @@ function toJSON(result) {
 export function run(argv) {
     const query = argv[0]?.trim();
     if (!query) {
-        return [];
+        return toJSON({ items: INVALID_ITEMS });
     }
     const result = calculate(query);
     return toJSON({
