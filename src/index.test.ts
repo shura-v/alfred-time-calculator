@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { calculate, run } from "./index.js";
+import { run } from "./index.js";
 
 const testCases = [
     ["1h + 30m", "1 hour, 30 minutes"],
@@ -9,14 +9,14 @@ const testCases = [
     ["300ms * 4", "1.2 seconds"],
 ];
 
-function fromJSON(str: string) {
-    return JSON.parse(str);
+function getResultItems(str: string) {
+    return JSON.parse(run([str])).items;
 }
 
 describe("Time Calculator", () => {
     it("should correctly calculate time expressions", () => {
         for (const [input, expectedOutput] of testCases) {
-            const result = fromJSON(run([input])).items;
+            const result = getResultItems(input);
             expect(result).toEqual([
                 { title: expectedOutput, subtitle: "Press Enter to copy", arg: expectedOutput },
             ]);
@@ -24,11 +24,7 @@ describe("Time Calculator", () => {
     });
 
     it("should return 'Invalid input' for unknown expressions", () => {
-        const [item] = fromJSON(run(["1test"])).items;
+        const [item] = getResultItems("1test");
         expect(item.title).toBe("Invalid input");
-    });
-
-    it("should return null for invalid calculate() input", () => {
-        expect(calculate("1test")).toBeNull();
     });
 });
