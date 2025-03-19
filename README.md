@@ -12,7 +12,19 @@ This package allows you to **quickly calculate time expressions** like `"1h + 30
 
 ## **🚀 Installation**
 
-### **1️⃣ Use as a CLI (`tc` command)**
+### **1️⃣ Use as an Alfred Workflow**
+
+1. **[Download the Workflow](https://github.com/shura-v/alfred-time-calculator/releases/latest)** (
+   `Time Calculator.alfredworkflow`)
+2. Open **Alfred → Preferences → Workflows**
+3. Drag & drop the workflow
+4. Use the **keyword `tc`** in Alfred:
+   - **Example:** `tc 2h + 45m`
+   - **Output:** `"2 hours, 45 minutes"`
+
+---
+
+### **2️⃣ Use as a CLI (`tc` command)**
 
 You can install the package globally and use it in the terminal:
 
@@ -34,7 +46,7 @@ tc "1h + 30m"
 
 ---
 
-### **2️⃣ Use as a Node.js module**
+### **3️⃣ Use as a Node.js module**
 
 Install the package:
 
@@ -50,18 +62,6 @@ import { calculate } from "alfred-time-calculator";
 console.log(calculate("2h - 10s"));
 // Output: "1 hour, 59 minutes, 50 seconds"
 ```
-
----
-
-### **3️⃣ Use as an Alfred Workflow**
-
-1. **[Download the Workflow](https://github.com/shura-v/alfred-time-calculator/releases/latest)** (
-   `Time Calculator.alfredworkflow`)
-2. Open **Alfred → Preferences → Workflows**
-3. Drag & drop the workflow
-4. Use the **keyword `tc`** in Alfred:
-    - **Example:** `tc 2h + 45m`
-    - **Output:** `"2 hours, 45 minutes"`
 
 ---
 
