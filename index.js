@@ -39,20 +39,19 @@ function calculate(value) {
 
 const INVALID_RESULT = [{title: 'Invalid input', subtitle: 'Try something like "1h + 30m"'}];
 
-export function getOutput(query) {
-    const trimmedQuery = query.trim();
-    if (!trimmedQuery) {
-        return {items: INVALID_RESULT};
+function toJSON(result) {
+    return JSON.stringify(result);
+}
+
+export function run(argv) {
+    const query = argv[0]?.trim();
+    if (!query) {
+        return toJSON({ items: INVALID_RESULT });
     }
-    const result = calculate(query.trim());
-    return {
+    const result = calculate(query);
+    return toJSON({
         items: result === null
             ? INVALID_RESULT
             : [{title: result, subtitle: 'Press Enter to copy', arg: result}]
-    };
-}
-
-function run() {
-    const query = '{query}';
-    return JSON.stringify(getOutput(query));
+    });
 }

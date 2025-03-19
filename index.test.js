@@ -1,5 +1,5 @@
 import t from "assert";
-import { getOutput } from './index.js'
+import { run } from './index.js'
 
 
 const cases = [
@@ -10,10 +10,14 @@ const cases = [
     ['300ms * 4', '1.2 seconds'],
 ];
 
+function fromJSON(str) {
+    return JSON.parse(str);
+}
+
 for (const [input, output] of cases) {
-    const result = getOutput(input).items;
+    const result = fromJSON(run([input])).items;
     t.deepStrictEqual(result, [{title: output, subtitle: 'Press Enter to copy', arg: output}]);
 }
 
-const [item] = getOutput("1test").items;
+const [item] = fromJSON(run(["1test"])).items;
 t.equal(item.title, 'Invalid input');

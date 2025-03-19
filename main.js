@@ -149,7 +149,7 @@ var require_ms = __commonJS({
 // index.js
 var index_exports = {};
 __export(index_exports, {
-  getOutput: () => getOutput
+  run: () => run
 });
 module.exports = __toCommonJS(index_exports);
 var import_ms = __toESM(require_ms(), 1);
@@ -185,21 +185,20 @@ function calculate(value) {
   }
 }
 var INVALID_RESULT = [{ title: "Invalid input", subtitle: 'Try something like "1h + 30m"' }];
-function getOutput(query) {
-  const trimmedQuery = query.trim();
-  if (!trimmedQuery) {
-    return { items: INVALID_RESULT };
-  }
-  const result = calculate(query.trim());
-  return {
-    items: result === null ? INVALID_RESULT : [{ title: result, subtitle: "Press Enter to copy", arg: result }]
-  };
+function toJSON(result) {
+  return JSON.stringify(result);
 }
-function run() {
-  const query = "{query}";
-  return JSON.stringify(getOutput(query));
+function run(argv) {
+  const query = argv[0]?.trim();
+  if (!query) {
+    return toJSON({ items: INVALID_RESULT });
+  }
+  const result = calculate(query);
+  return toJSON({
+    items: result === null ? INVALID_RESULT : [{ title: result, subtitle: "Press Enter to copy", arg: result }]
+  });
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  getOutput
+  run
 });
