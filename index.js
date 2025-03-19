@@ -37,7 +37,7 @@ function calculate(value) {
     }
 }
 
-const INVALID_RESULT = [{title: 'Invalid input', subtitle: 'Try something like "1h + 30m"'}];
+const INVALID_ITEMS = [{title: 'Invalid input', subtitle: 'Try something like "1h + 30m"'}];
 
 function toJSON(result) {
     return JSON.stringify(result);
@@ -46,12 +46,12 @@ function toJSON(result) {
 export function run(argv) {
     const query = argv[0]?.trim();
     if (!query) {
-        return toJSON({ items: INVALID_RESULT });
+        return [];
     }
     const result = calculate(query);
     return toJSON({
         items: result === null
-            ? INVALID_RESULT
+            ? INVALID_ITEMS
             : [{title: result, subtitle: 'Press Enter to copy', arg: result}]
     });
 }

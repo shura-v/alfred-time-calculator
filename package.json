@@ -1,12 +1,13 @@
 {
   "name": "alfred-time-calculator",
   "type": "module",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Alfred workflow for calculating time expressions and durations",
   "license": "MIT",
   "repository": {
     "url": "git+https://github.com/shura-v/alfred-time-calculator"
   },
+  "main": "index.js",
   "author": {
     "name": "Shura Vlasov",
     "url": "github.com/shura-v"
@@ -18,11 +19,6 @@
     "build": "node ./build",
     "test": "node ./index.test"
   },
-  "files": [
-    "main.js",
-    "info.plist",
-    "icon.png"
-  ],
   "keywords": [
     "alfred",
     "workflow",
