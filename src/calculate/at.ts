@@ -21,7 +21,7 @@ export function calculateAt(value: string): string | null {
   const roundedNow = roundToMinute(new Date());
 
   if (roundedParsed.getTime() === roundedNow.getTime()) {
-    return null;
+    return "now";
   }
 
   const diffMs = roundedParsed.getTime() - roundedNow.getTime();
