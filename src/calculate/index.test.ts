@@ -57,7 +57,12 @@ describe("Date-based calculations", () => {
 
   it("should return correct relative duration for `at next wednesday` from fixed date", () => {
     const result = calculate("at next wednesday");
-    expect(result).toMatch(/in 4 days 7 hours/i);
+    expect(result).toMatch(/in 4 days 19 hours/i);
+  });
+
+  it("should return correct relative duration for `at next wednesday` from fixed date and time", () => {
+    const result = calculate("at next wednesday at 11:00");
+    expect(result).toMatch(/in 4 days 18 hours/i);
   });
 
   it("should return null for invalid input", () => {
