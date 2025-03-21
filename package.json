@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "rimraf ./dist && node ./build",
-    "postbuild": "tsc --emitDeclarationOnly && chmod +x dist/cli.js",
+    "postbuild": "tsc --emitDeclarationOnly",
     "test": "cross-env TZ=UTC vitest",
     "prepublishOnly": "pnpm test && pnpm build"
   },
