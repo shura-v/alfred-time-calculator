@@ -55,6 +55,11 @@ describe("Date-based calculations", () => {
     expect(calculate("30000 years ago")).toMatch(/~\d+ BC/i);
   });
 
+  it("should return correct relative duration for `at next wednesday` from fixed date", () => {
+    const result = calculate("at next wednesday");
+    expect(result).toMatch(/in 4 days 7 hours/i);
+  });
+
   it("should return null for invalid input", () => {
     expect(calculate("potato salad")).toBeNull();
   });

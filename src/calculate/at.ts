@@ -1,5 +1,6 @@
 import { parseDate } from "chrono-node";
 import { formatDuration, intervalToDuration } from "date-fns";
+import { snapToLocalStartOfDay } from "./utils";
 
 export function calculateAt(value: string): string | null {
   const inputAt = value.match(/^at\s+(.*)/)?.[1]?.trim();
@@ -7,17 +8,17 @@ export function calculateAt(value: string): string | null {
     return null;
   }
 
-  const target = parseDate(inputAt)?.getTime();
-  if (!target) {
+  const parsed = parseDate(inputAt);
+  if (!parsed) {
     return null;
   }
-
+  const parsedStartOfDay = snapToLocalStartOfDay(parsed).getTime();
   const now = Date.now();
-  const isFutureTarget = now < target;
+  const isFutureTarget = now < parsedStartOfDay;
 
   const duration = intervalToDuration({
-    start: isFutureTarget ? now : target,
-    end: isFutureTarget ? target : now,
+    start: isFutureTarget ? now : parsedStartOfDay,
+    end: isFutureTarget ? parsedStartOfDay : now,
   });
 
   const formattedDuration = formatDuration(duration);
