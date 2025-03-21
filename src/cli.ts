@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-import { calculate } from "./index.js";
+import { calculate } from "./calculate";
 
 const input = process.argv.slice(2).join(" ");
+const result = calculate(input);
 
-if (!input) {
-  console.log("Usage: tc \"1h + 30m\"");
+if (!result) {
+  console.log('Usage: tc "1h + 30m"');
   process.exit(1);
 }
 
-console.log(calculate(input));
+console.log(result);

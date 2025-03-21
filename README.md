@@ -19,8 +19,8 @@ This package allows you to **quickly calculate time expressions** like `"1h + 30
 2. Open **Alfred → Preferences → Workflows**
 3. Drag & drop the workflow
 4. Use the **keyword `tc`** in Alfred:
-   - **Example:** `tc 2h + 45m`
-   - **Output:** `"2 hours, 45 minutes"`
+    - **Example:** `tc 2h + 45m`
+    - **Output:** `"2 hours, 45 minutes"`
 
 ---
 
@@ -35,7 +35,7 @@ npm install -g alfred-time-calculator
 Now you can run:
 
 ```sh
-tc "1h + 30m"
+tc 1h + 30m
 ```
 
 **Output:**
@@ -69,6 +69,9 @@ console.log(calculate("2h - 10s"));
 
 - Convert expressions like `1h + 30m - 5s / 2`
 - Supports **days, hours, minutes, seconds, and milliseconds**
+- Supports `at <date>` → returns relative duration ("in 3 days" or "2 months ago")
+- Supports `in 2 days`, `3 weeks ago` → returns actual date (e.g. "Friday, March 24, 2025, 17:00")
+- Gracefully handles ultra ancient / future dates (`~25475 BC`)
 - CLI support (`tc` command)
 - Works with **multiplication and division** (`2d * 3`, `1h / 2`)
 - **Formatted duration output** (`1 hour, 30 minutes`)
@@ -78,11 +81,12 @@ console.log(calculate("2h - 10s"));
 
 ## **🛠 Supported Time Units**
 
-- `d` – days (`2d = 172800 seconds`)
-- `h` – hours (`3h = 10800 seconds`)
-- `m` – minutes (`30m = 1800 seconds`)
-- `s` – seconds (`45s = 45 seconds`)
-- `ms` – milliseconds (`500ms = 0.5 seconds`)
+- `d` – days
+- `w` – weeks
+- `h` – hours
+- `m` – minutes
+- `s` – seconds
+- `ms` – milliseconds
 
 You can **combine expressions** (`1h + 30m - 5s / 2`) and use **multiplication/division** (`2d * 3`, `1h / 2`).
 
@@ -95,8 +99,10 @@ When installed globally, this package registers the **`tc`** command as a CLI to
 **It is defined in `package.json` under `bin`:**
 
 ```json
-"bin": {
-  "tc": "./dist/cli.js"
+{
+  "bin": {
+    "tc": "./dist/cli.js"
+  }
 }
 ```
 
@@ -130,6 +136,33 @@ npm unlink -g alfred-time-calculator
 
 ---
 
+## 🧪 Date-Based Queries (`at`, `in`, `ago`)
+
+This tool also understands natural language date expressions and returns **relative durations** or **absolute dates**.
+
+### 🧭 `at <date>` → returns relative duration
+
+| Input               | Output example                                                         |
+|---------------------|------------------------------------------------------------------------|
+| `tc at august 1998` | `26 years 7 months 20 days 11 hours 10 minutes 9 seconds ago`          |
+| `tc at jan 2000`    | `25 years 2 months 20 days 11 hours 10 minutes 47 seconds ago`         |
+| `tc at monday`      | `in 2 days 12 hours 49 minutes 40 seconds` (depending on current day)  |
+| `tc at next friday` | `in 6 days 12 hours 48 minutes 41 seconds` (depending on current day)  |
+| `tc at last sunday` | `5 days 11 hours 11 minutes 34 seconds ago` (depending on current day) |
+
+> ⚠️ Note: Avoid using only a year (like `tc at 2020`) — use a full date or add a month (e.g. `tc at jan 2020`)
+
+### 🕓 `in <duration>` / `<duration> ago` → returns absolute date
+
+| Input               | Output example                  |
+|---------------------|---------------------------------|
+| `tc in 3 days`      | `Monday, March 24, 2025, 17:00` |
+| `tc 5 hours ago`    | `Friday, March 21, 2025, 12:00` |
+| `tc in 10 minutes`  | `Friday, March 21, 2025, 17:10` |
+| `tc 30000 days ago` | `~25475 BC (too ancient)`       |
+
+---
+
 ## **💻 How It Works (Technical)**
 
 - **Parses time units using `ms` module**
@@ -145,19 +178,13 @@ npm unlink -g alfred-time-calculator
 To build the project:
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 To run tests:
 
 ```sh
-npm test
-```
-
-To generate TypeScript declaration files:
-
-```sh
-npm run postbuild
+pnpm test
 ```
 
 ---
@@ -165,6 +192,6 @@ npm run postbuild
 ## **👨‍💻 Author**
 
 - **Created by:** [Shura Vlasov](https://github.com/shura-v)
-- **GitHub:** [github.com/shura-v/alfred-time-calculator](https://github.com/shura-v/alfred-time-calculator)
+- **GitHub:** [github.com/shura-v](https://github.com/shura-v)
 
 🚀 **Now you can calculate time expressions in Alfred, terminal, and Node.js!**

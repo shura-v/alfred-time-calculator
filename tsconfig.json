@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "target": "ES2020",
+    "rootDir": "src",
     "outDir": "dist",
     "strict": true,
-    "module": "Node16",
+    "module": "preserve",
     "declaration": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "bundler"
   },
-  "files": [
-    "src/index.ts"
+  "include": [
+    "src/**/*.ts"
   ]
 }
