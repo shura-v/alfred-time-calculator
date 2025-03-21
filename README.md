@@ -142,13 +142,13 @@ This tool also understands natural language date expressions and returns **relat
 
 ### 🧭 `at <date>` → returns relative duration
 
-| Input               | Output example                                                         |
-|---------------------|------------------------------------------------------------------------|
-| `tc at august 1998` | `26 years 7 months 20 days 11 hours 10 minutes 9 seconds ago`          |
-| `tc at jan 2000`    | `25 years 2 months 20 days 11 hours 10 minutes 47 seconds ago`         |
-| `tc at monday`      | `in 2 days 12 hours 49 minutes 40 seconds` (depending on current day)  |
-| `tc at next friday` | `in 6 days 12 hours 48 minutes 41 seconds` (depending on current day)  |
-| `tc at last sunday` | `5 days 11 hours 11 minutes 34 seconds ago` (depending on current day) |
+| Input               | Output example                                                 |
+|---------------------|----------------------------------------------------------------|
+| `tc at august 1998` | `26 years 7 months 20 days 11 hours 10 minutes 9 seconds ago`  |
+| `tc at jan 2000`    | `25 years 2 months 20 days 11 hours 10 minutes 47 seconds ago` |
+| `tc at monday`      | `in 2 days 12 hours 49 minutes 40 seconds`                     |
+| `tc at next friday` | `in 6 days 12 hours 48 minutes 41 seconds`                     |
+| `tc at last sunday` | `5 days 11 hours 11 minutes 34 seconds ago`                    |
 
 > ⚠️ Note: Avoid using only a year (like `tc at 2020`) — use a full date or add a month (e.g. `tc at jan 2020`)
 
