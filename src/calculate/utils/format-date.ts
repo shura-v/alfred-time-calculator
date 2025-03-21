@@ -7,6 +7,5 @@ export function formatDate(date: Date, locale = "en-US"): string {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
-    timeZone: "UTC",
   }).format(date);
 }
