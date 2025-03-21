@@ -3,7 +3,7 @@ import { formatDuration, intervalToDuration } from "date-fns";
 
 export function roundToMinute(date: Date): Date {
   const ms = date.getTime();
-  const rounded = Math.round(ms / 60_000) * 60_000;
+  const rounded = Math.round(ms / 1000) * 1000;
   return new Date(rounded);
 }
 
