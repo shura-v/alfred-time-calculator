@@ -35,7 +35,7 @@ npm install -g alfred-time-calculator
 Now you can run:
 
 ```sh
-tc 1h + 30m
+tc "1h + 30m"
 ```
 
 **Output:**
