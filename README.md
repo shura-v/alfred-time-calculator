@@ -154,12 +154,12 @@ This tool also understands natural language date expressions and returns **relat
 
 ### 🕓 `in <duration>` / `<duration> ago` → returns absolute date
 
-| Input               | Output example                  |
-|---------------------|---------------------------------|
-| `tc in 3 days`      | `Monday, March 24, 2025, 17:00` |
-| `tc 5 hours ago`    | `Friday, March 21, 2025, 12:00` |
-| `tc in 10 minutes`  | `Friday, March 21, 2025, 17:10` |
-| `tc 30000 days ago` | `~25475 BC (too ancient)`       |
+| Input                | Output example                  |
+|----------------------|---------------------------------|
+| `tc in 3 days`       | `Monday, March 24, 2025, 17:00` |
+| `tc 5 hours ago`     | `Friday, March 21, 2025, 12:00` |
+| `tc in 10 minutes`   | `Friday, March 21, 2025, 17:10` |
+| `tc 30000 years ago` | `~27975 BC (too ancient)`       |
 
 ---
 
