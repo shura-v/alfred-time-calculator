@@ -10,4 +10,5 @@ await build({
   outdir: "dist",
   mainFields: ["module", "main"],
   minify: true,
+  legalComments: "none",
 });

@@ -14,6 +14,9 @@ importers:
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
+      expr-eval:
+        specifier: ^2.0.2
+        version: 2.0.2
       ms:
         specifier: ^2.1.3
         version: 2.1.3
@@ -435,6 +438,9 @@ packages:
   expect-type@1.2.0:
     resolution: {integrity: sha512-80F22aiJ3GLyVnS/B3HzgR6RelZVumzj9jkL0Rhz4h0xYbNW9PjlQz5h3J/SShErbXBc295vseR4/MIbVmUbeA==}
     engines: {node: '>=12.0.0'}
+
+  expr-eval@2.0.2:
+    resolution: {integrity: sha512-4EMSHGOPSwAfBiibw3ndnP0AvjDWLsMvGOvWEZ2F96IGk0bIVdjQisOHxReSkE13mHcfbuCiXw+G4y0zv6N8Eg==}
 
   foreground-child@3.3.1:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
@@ -979,6 +985,8 @@ snapshots:
       '@types/estree': 1.0.6
 
   expect-type@1.2.0: {}
+
+  expr-eval@2.0.2: {}
 
   foreground-child@3.3.1:
     dependencies:

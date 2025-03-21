@@ -1,11 +1,6 @@
 import { parse } from "chrono-node";
 import { formatDuration, intervalToDuration } from "date-fns";
-
-export function roundToMinute(date: Date): Date {
-  const ms = date.getTime();
-  const rounded = Math.round(ms / 1000) * 1000;
-  return new Date(rounded);
-}
+import { roundToMinute } from "./utils";
 
 export function calculateAt(value: string): string | null {
   const inputAt = value.match(/^at\s+(.*)/i)?.[1]?.trim();
