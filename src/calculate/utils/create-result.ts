@@ -9,8 +9,5 @@ export function createResult({
   result,
   info,
 }: TCreateResultArgs): TimeCalculatorResult {
-  return {
-    result: result,
-    info: info,
-  };
+  return { result, info };
 }
