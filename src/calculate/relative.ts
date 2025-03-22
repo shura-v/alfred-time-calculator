@@ -1,6 +1,7 @@
 import { parseDate } from "chrono-node";
 import { addBusinessDays, isValid, subBusinessDays } from "date-fns";
-import { formatDate } from "./utils";
+import type { TimeCalculatorResult } from "./types";
+import { createResult, formatDate } from "./utils";
 
 function isWeekdaysExpression(text: string): number | null {
   const daysStr = /^(\d+)\s+weekdays?$/i.exec(text)?.[1];
@@ -19,7 +20,7 @@ function calculateWeekdays(input: string, isFuture: boolean): string | null {
   return formatDate(result);
 }
 
-export function calculateRelative(value: string): string | null {
+export function calculateRelative(value: string): TimeCalculatorResult | null {
   const inputIn = value.match(/^in\s+(.+)$/i)?.[1]?.trim();
   const inputAgo = value.match(/^(.+)\s+ago$/i)?.[1]?.trim();
   if (!inputIn && !inputAgo) {
@@ -31,7 +32,10 @@ export function calculateRelative(value: string): string | null {
 
   const weekdayResult = calculateWeekdays(input, isFuture);
   if (weekdayResult) {
-    return weekdayResult;
+    return createResult({
+      result: weekdayResult,
+      info: "Weekdays exclude weekends, not holidays",
+    });
   }
 
   const expression = isFuture ? `${input} from now` : `${input} ago`;
@@ -42,11 +46,11 @@ export function calculateRelative(value: string): string | null {
 
   const year = parsed.getFullYear();
   if (year < 0) {
-    return `~${Math.abs(year)} BC (too ancient)`;
+    return createResult({ result: `~${Math.abs(year)} BC (too ancient)` });
   }
   if (year > 9999) {
-    return `~${year} AD (too far in the future)`;
+    return createResult({ result: `~${year} AD (too far in the future)` });
   }
 
-  return formatDate(parsed);
+  return createResult({ result: formatDate(parsed) });
 }

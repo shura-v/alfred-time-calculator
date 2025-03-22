@@ -169,6 +169,10 @@ This tool also understands natural language date expressions and returns **relat
 | `tc 5 weekdays ago`  | `Friday, March 14, 2025`        |
 | `tc 30000 years ago` | `~27975 BC (too ancient)`       |
 
+> ⚠️ **Note on weekdays**:
+> - `weekday(s)` means **working days from Monday to Friday**
+> - **Public holidays are not taken into account**, as they vary by country
+
 ---
 
 ## **💻 How It Works (Technical)**

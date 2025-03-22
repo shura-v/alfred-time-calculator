@@ -1,8 +1,9 @@
 import { parse } from "chrono-node";
 import { formatDuration, intervalToDuration } from "date-fns";
-import { roundToSecond } from "./utils";
+import type { TimeCalculatorResult } from "./types";
+import { createResult, roundToSecond } from "./utils";
 
-export function calculateAt(value: string): string | null {
+export function calculateAt(value: string): TimeCalculatorResult | null {
   const inputAt = value.match(/^at\s+(.*)/i)?.[1]?.trim();
   if (!inputAt) return null;
 
@@ -16,7 +17,7 @@ export function calculateAt(value: string): string | null {
   const roundedNow = roundToSecond(new Date());
 
   if (roundedParsed.getTime() === roundedNow.getTime()) {
-    return "now";
+    return createResult({ result: "now" });
   }
 
   const diffMs = roundedParsed.getTime() - roundedNow.getTime();
@@ -28,5 +29,7 @@ export function calculateAt(value: string): string | null {
   });
 
   const formatted = formatDuration(duration);
-  return isFuture ? `in ${formatted}` : `${formatted} ago`;
+  return createResult({
+    result: isFuture ? `in ${formatted}` : `${formatted} ago`,
+  });
 }

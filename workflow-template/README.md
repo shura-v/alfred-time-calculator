@@ -21,6 +21,11 @@ This Alfred Workflow allows you to **quickly calculate time expressions** like `
 - Works even with ancient or futuristic dates:  
   `tc at Jan 1990`, `tc 30000 years ago`
 
+> ⚠️ **Notes**:  
+> – Avoid using only a year (like `tc at 2020`) — use a full date or add a month (e.g. `tc at jan 2020`)  
+> – Dates like `"tc at last sunday"` assume noon (12:00) by default if no time is specified  
+> – `weekday(s)` means **working days from Monday to Friday**, **public holidays are not taken into account**, as they vary by country  
+
 ---
 
 ## 💡 Examples

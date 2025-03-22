@@ -1,8 +1,11 @@
 import { Parser } from "expr-eval";
 import ms, { type StringValue } from "ms";
-import { humanizeDuration } from "./utils";
+import type { TimeCalculatorResult } from "./types";
+import { createResult, humanizeDuration } from "./utils";
 
-export function calculateExpression(value: string) {
+export function calculateExpression(
+  value: string,
+): TimeCalculatorResult | null {
   const parser = new Parser();
   const expression = value
     .replaceAll(/,/g, ".") // replace commas with dots
@@ -15,5 +18,5 @@ export function calculateExpression(value: string) {
   if (isNaN(totalSeconds)) {
     return null;
   }
-  return humanizeDuration(totalSeconds);
+  return createResult({ result: humanizeDuration(totalSeconds) });
 }

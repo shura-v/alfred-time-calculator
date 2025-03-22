@@ -31,7 +31,13 @@ function run(argv: Array<string>): string {
     items:
       result === null
         ? INVALID_ITEMS
-        : [{ title: result, subtitle: "Press Enter to copy", arg: result }],
+        : [
+            {
+              title: result.result,
+              subtitle: result.info ?? "Press Enter to copy",
+              arg: result.result,
+            },
+          ],
   });
 }
 

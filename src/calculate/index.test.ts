@@ -1,6 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { calculate } from "./";
 
+function getTitle(query: string) {
+  return calculate(query)?.result;
+}
+
 const fixedNow = new Date("2025-03-21T17:00:00Z");
 
 beforeEach(() => {
@@ -27,44 +31,42 @@ describe("Expressions", () => {
 
   it("should correctly calculate time expressions", () => {
     for (const [input, expectedOutput] of expressionCases) {
-      const result = calculate(input);
-      expect(result).toEqual(expectedOutput);
+      const title = getTitle(input);
+      expect(title).toEqual(expectedOutput);
     }
   });
 });
 
 describe("Duration calculations (at)", () => {
   it("should return relative duration for `at <date>`", () => {
-    expect(calculate("at jan 2000")).toMatch(/25 years.*ago/i);
-    expect(calculate("at next monday")).toMatch(/in \d+ days/i);
-    expect(calculate("at last sunday")).toMatch(/\d+ days.*ago/i);
+    expect(getTitle("at jan 2000")).toMatch(/25 years.*ago/i);
+    expect(getTitle("at next monday")).toMatch(/in \d+ days/i);
+    expect(getTitle("at last sunday")).toMatch(/\d+ days.*ago/i);
   });
 
   it("should return correct relative duration from fixed date", () => {
-    expect(calculate("at next wednesday")).toMatch(/in 4 days 19 hours/i);
-    expect(calculate("at next wednesday at 11:00")).toMatch(
+    expect(getTitle("at next wednesday")).toMatch(/in 4 days 19 hours/i);
+    expect(getTitle("at next wednesday at 11:00")).toMatch(
       /in 4 days 18 hours/i,
     );
-    expect(calculate("at last friday at 00:00")).toMatch(
-      /7 days 17 hours ago/i,
-    );
+    expect(getTitle("at last friday at 00:00")).toMatch(/7 days 17 hours ago/i);
   });
 });
 
 describe("Absolute date calculations (in/ago)", () => {
   it("should return absolute date for `in <duration>`", () => {
-    expect(calculate("in 3 days")).toMatch(/March 24, 2025/i);
-    expect(calculate("in 1 hour")).toMatch(/March 21, 2025/i);
-    expect(calculate("in 5 weekdays")).toMatch(/Friday, March 28/i);
+    expect(getTitle("in 3 days")).toMatch(/March 24, 2025/i);
+    expect(getTitle("in 1 hour")).toMatch(/March 21, 2025/i);
+    expect(getTitle("in 5 weekdays")).toMatch(/Friday, March 28/i);
   });
 
   it("should return absolute date for `<duration> ago`", () => {
-    expect(calculate("5 minutes ago")).toMatch(/March 21, 2025/i);
-    expect(calculate("10 days ago")).toMatch(/March 11, 2025/i);
+    expect(getTitle("5 minutes ago")).toMatch(/March 21, 2025/i);
+    expect(getTitle("10 days ago")).toMatch(/March 11, 2025/i);
   });
 
   it("should handle ancient dates gracefully", () => {
-    expect(calculate("30000 years ago")).toMatch(/~\d+ BC/i);
+    expect(getTitle("30000 years ago")).toMatch(/~\d+ BC/i);
   });
 });
 

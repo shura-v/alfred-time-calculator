@@ -1,12 +1,20 @@
 #!/usr/bin/env node
+import chalk from "chalk";
 import { calculate } from "./calculate";
 
 const input = process.argv.slice(2).join(" ");
-const result = calculate(input);
+const calcResult = calculate(input);
 
-if (!result) {
-  console.log('Usage: tc "1h + 30m"');
+if (!calcResult) {
+  console.error(chalk.red("❌ Invalid input."));
+  console.log(chalk.gray('Usage: tc "1h + 30m"'));
   process.exit(1);
 }
 
-console.log(result);
+const { info, result } = calcResult;
+
+console.info(chalk.green(result));
+
+if (info) {
+  console.log(chalk.gray(info));
+}

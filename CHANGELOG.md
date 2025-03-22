@@ -1,3 +1,24 @@
+## [3.6.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.6.0...v3.6.1) (2025-03-22)
+
+
+### Bug Fixes
+
+* better info for weekdays ([92afb19](https://github.com/shura-v/alfred-time-calculator/commit/92afb19631dd8b1431d364f8887dbb90834adbf5))
+
+# [3.6.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.5.0...v3.6.0) (2025-03-22)
+
+
+### Features
+
+* return structured result { result, info } instead of plain string ([1c3d03e](https://github.com/shura-v/alfred-time-calculator/commit/1c3d03eb3cbdbaa57b4092c549ea0e39ee74edfb))
+
+# [3.5.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.4.7...v3.5.0) (2025-03-22)
+
+
+### Features
+
+* return structured result { title, subtitle } instead of plain string ([0a426c7](https://github.com/shura-v/alfred-time-calculator/commit/0a426c7442312b3e6161b83fc4c784ec27b4f1ab))
+
 ## [3.4.7](https://github.com/shura-v/alfred-time-calculator/compare/v3.4.6...v3.4.7) (2025-03-22)
 
 

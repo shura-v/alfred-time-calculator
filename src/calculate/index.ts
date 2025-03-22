@@ -1,8 +1,9 @@
 import { calculateAt } from "./at";
 import { calculateExpression } from "./expression";
 import { calculateRelative } from "./relative";
+import type { TimeCalculatorResult } from "./types";
 
-export function calculate(value: string): string | null {
+export function calculate(value: string): TimeCalculatorResult | null {
   const lower = value.toLowerCase().trim();
   try {
     return (
@@ -14,3 +15,5 @@ export function calculate(value: string): string | null {
     return null;
   }
 }
+
+export { type TimeCalculatorResult };
