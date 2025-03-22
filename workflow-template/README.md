@@ -4,17 +4,6 @@ This Alfred Workflow allows you to **quickly calculate time expressions** like `
 
 ---
 
-## 🚀 Installation
-
-1. [Download the Workflow](https://github.com/shura-v/alfred-time-calculator/releases/latest/download/time-calculator.alfredworkflow)
-2. Open **Alfred → Preferences → Workflows**
-3. Drag & drop the downloaded file into the list of workflows
-4. Use the keyword `tc` in Alfred:
-    - Example: `tc 2h + 45m`
-    - Output: `"2 hours, 45 minutes"`
-
----
-
 ## ⚙️ Features
 
 - Understands expressions like:  
