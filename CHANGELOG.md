@@ -1,3 +1,10 @@
+## [3.4.6](https://github.com/shura-v/alfred-time-calculator/compare/v3.4.5...v3.4.6) (2025-03-22)
+
+
+### Bug Fixes
+
+* negative expressions ([2e3574c](https://github.com/shura-v/alfred-time-calculator/commit/2e3574c524a96c18884fc1e62d1614b63080a3f1))
+
 ## [3.4.5](https://github.com/shura-v/alfred-time-calculator/compare/v3.4.4...v3.4.5) (2025-03-22)
 
 
