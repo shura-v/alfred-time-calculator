@@ -1,6 +1,6 @@
 import { parse } from "chrono-node";
 import { formatDuration, intervalToDuration } from "date-fns";
-import { roundToMinute } from "./utils";
+import { roundToSecond } from "./utils";
 
 export function calculateAt(value: string): string | null {
   const inputAt = value.match(/^at\s+(.*)/i)?.[1]?.trim();
@@ -12,8 +12,8 @@ export function calculateAt(value: string): string | null {
   const parsed = results[0].start.date();
   if (!parsed || isNaN(parsed.getTime())) return null;
 
-  const roundedParsed = roundToMinute(parsed);
-  const roundedNow = roundToMinute(new Date());
+  const roundedParsed = roundToSecond(parsed);
+  const roundedNow = roundToSecond(new Date());
 
   if (roundedParsed.getTime() === roundedNow.getTime()) {
     return "now";
