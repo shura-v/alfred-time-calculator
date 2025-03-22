@@ -12,5 +12,5 @@ export function calculateExpression(value: string) {
   if (isNaN(totalSeconds)) {
     return null;
   }
-  return humanizeDuration(totalSeconds);
+  return humanizeDuration(totalSeconds) || "0";
 }
