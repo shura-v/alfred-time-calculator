@@ -9,7 +9,7 @@ export function calculateRelative(value: string): string | null {
   const parsed = parseDate(expression);
   if (!parsed || isNaN(parsed.getTime())) return null;
 
-  const year = parsed.getUTCFullYear();
+  const year = parsed.getFullYear();
 
   if (year < 0) {
     const approxYear = Math.abs(year);
