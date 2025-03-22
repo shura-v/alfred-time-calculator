@@ -184,7 +184,8 @@ This tool also understands natural language date expressions and returns **relat
 To build the project:
 
 ```sh
-pnpm run build
+pnpm run build:workflow   # Build Alfred workflow bundle
+pnpm run build:node       # Build Node.js CLI and library
 ```
 
 To run tests:
