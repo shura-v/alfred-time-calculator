@@ -166,12 +166,12 @@ This tool also understands natural language date expressions and returns **relat
 ## **💻 How It Works (Technical)**
 
 - **Parses time units** like `1h`, `30m`, `5s` using the `ms` module
-- **Evaluates expressions** (`1h + 30m - 5s / 2`) via `eval()`, after replacing all time units with seconds
+- **Evaluates expressions** like `1h + 30m - 5s / 2` by replacing time units with seconds and computing the result using a secure math expression parser ([`expr-eval`](https://github.com/silentmatt/expr-eval)).
 - **Formats durations** like `"2 hours, 45 minutes"` using `date-fns/formatDuration`
 - **Calculates time deltas** (`at`, `in`, `ago`) via `date-fns/intervalToDuration`
 - **Parses natural language dates** using [`chrono-node`](https://github.com/wanasit/chrono)
    - Supports expressions like `"next Friday"`, `"2 weeks ago"`, `"tomorrow at 10pm"`, `"Jan 2000"`
-- **Formats dates** using `Intl.DateTimeFormat` with fixed UTC timezone
+- **Formats dates** using `Intl.DateTimeFormat` in the user's local timezone
 - **Returns Alfred-compatible JSON** via the **Script Filter**
 
 ---
