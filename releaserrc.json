@@ -6,21 +6,20 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     [
+      "@semantic-release/npm",
+      {
+        "npmPublish": true
+      }
+    ],
+    [
       "@semantic-release/github",
       {
         "assets": [
           {
-            "path": "dist-release/time-calculator.alfredworkflow",
-            "label": "Time Calculator Alfred Workflow",
-            "name": "time-calculator.alfredworkflow"
+            "path": "./dist-release/time-calculator.alfredworkflow",
+            "label": "Time Calculator Alfred Workflow"
           }
         ]
-      }
-    ],
-    [
-      "@semantic-release/npm",
-      {
-        "npmPublish": true
       }
     ]
   ]
