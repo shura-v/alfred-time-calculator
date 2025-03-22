@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.4.7...v3.5.0) (2025-03-22)
+
+
+### Features
+
+* return structured result { title, subtitle } instead of plain string ([8cab607](https://github.com/shura-v/alfred-time-calculator/commit/8cab607a3b25b76bf285ee2545624c1ff4d5f176))
+
 ## [3.6.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.6.0...v3.6.1) (2025-03-22)
 
 
