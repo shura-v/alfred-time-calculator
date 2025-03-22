@@ -142,15 +142,17 @@ This tool also understands natural language date expressions and returns **relat
 
 ### 🧭 `at <date>` → returns relative duration
 
-| Input               | Output example                                                 |
-|---------------------|----------------------------------------------------------------|
-| `tc at august 1998` | `26 years 7 months 20 days 11 hours 10 minutes 9 seconds ago`  |
-| `tc at jan 2000`    | `25 years 2 months 20 days 11 hours 10 minutes 47 seconds ago` |
-| `tc at monday`      | `in 2 days 12 hours 49 minutes 40 seconds`                     |
-| `tc at next friday` | `in 6 days 12 hours 48 minutes 41 seconds`                     |
-| `tc at last sunday` | `5 days 11 hours 11 minutes 34 seconds ago`                    |
+| Input                     | Output example                                                  |
+|---------------------------|-----------------------------------------------------------------|
+| `tc at august 1998`       | `26 years 7 months 20 days 11 hours 10 minutes 9 seconds ago`   |
+| `tc at jan 2000`          | `25 years 2 months 20 days 11 hours 10 minutes 47 seconds ago`  |
+| `tc at monday`            | `in 2 days 12 hours 49 minutes 40 seconds`                      |
+| `tc at next friday 21:00` | `in 6 days 12 hours 48 minutes 41 seconds`                      |
+| `tc at last sunday`       | `5 days 11 hours 11 minutes 34 seconds ago` (defaults to 12:00) |
 
-> ⚠️ Note: Avoid using only a year (like `tc at 2020`) — use a full date or add a month (e.g. `tc at jan 2020`)
+> ⚠️ Note:
+> - Avoid using only a year (like `tc at 2020`) — use a full date or add a month (e.g. `tc at jan 2020`)
+> - Dates like `"tc at last sunday"` return noon (12:00) by default if no time is specified.
 
 ### 🕓 `in <duration>` / `<duration> ago` → returns absolute date
 
@@ -166,11 +168,12 @@ This tool also understands natural language date expressions and returns **relat
 ## **💻 How It Works (Technical)**
 
 - **Parses time units** like `1h`, `30m`, `5s` using the [`ms`](https://github.com/vercel/ms) module
-- **Evaluates expressions** like `1h + 30m - 5s / 2` by replacing time units with seconds and computing the result using a secure math expression parser ([`expr-eval`](https://github.com/silentmatt/expr-eval)).
+- **Evaluates expressions** like `1h + 30m - 5s / 2` by replacing time units with seconds and computing the result using
+  a secure math expression parser ([`expr-eval`](https://github.com/silentmatt/expr-eval)).
 - **Formats durations** like `"2 hours, 45 minutes"` using [`date-fns`](https://github.com/date-fns/date-fns)
 - **Calculates time deltas** (`at`, `in`, `ago`) via [`date-fns`](https://github.com/date-fns/date-fns)
 - **Parses natural language dates** using [`chrono-node`](https://github.com/wanasit/chrono)
-   - Supports expressions like `"next Friday"`, `"2 weeks ago"`, `"tomorrow at 10pm"`, `"Jan 2000"`
+    - Supports expressions like `"next Friday"`, `"2 weeks ago"`, `"tomorrow at 10pm"`, `"Jan 2000"`
 - **Formats dates** using `Intl.DateTimeFormat` in the user's local timezone
 - **Returns Alfred-compatible JSON** via the **Script Filter**
 
