@@ -18,7 +18,7 @@
     "build:node": "rimraf dist && node build/node",
     "build:workflow": "rimraf dist-workflow && node build/workflow",
     "postbuild:node": "tsc --emitDeclarationOnly",
-    "test": "cross-env TZ=UTC vitest",
+    "test": "cross-env TZ=UTC vitest --run",
     "prepublishOnly": "pnpm test && pnpm build:node"
   },
   "main": "dist/index.js",
