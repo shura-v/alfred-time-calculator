@@ -44,6 +44,7 @@ describe("Date-based calculations", () => {
   it("should return absolute date for `in <duration>`", () => {
     expect(calculate("in 3 days")).toMatch(/March 24, 2025/i);
     expect(calculate("in 1 hour")).toMatch(/March 21, 2025/i);
+    expect(calculate("in 5 weekdays")).toMatch(/Friday, March 28/i);
   });
 
   it("should return absolute date for `<duration> ago`", () => {
@@ -55,14 +56,14 @@ describe("Date-based calculations", () => {
     expect(calculate("30000 years ago")).toMatch(/~\d+ BC/i);
   });
 
-  it("should return correct relative duration for `at next wednesday` from fixed date", () => {
-    const result = calculate("at next wednesday");
-    expect(result).toMatch(/in 4 days 19 hours/i);
-  });
-
-  it("should return correct relative duration for `at next wednesday` from fixed date and time", () => {
-    const result = calculate("at next wednesday at 11:00");
-    expect(result).toMatch(/in 4 days 18 hours/i);
+  it("should return correct relative duration from fixed date", () => {
+    expect(calculate("at next wednesday")).toMatch(/in 4 days 19 hours/i);
+    expect(calculate("at next wednesday at 11:00")).toMatch(
+      /in 4 days 18 hours/i,
+    );
+    expect(calculate("at last friday at 00:00")).toMatch(
+      /7 days 17 hours ago/i,
+    );
   });
 
   it("should return null for invalid input", () => {
