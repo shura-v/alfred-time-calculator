@@ -19,6 +19,7 @@ describe("Expressions", () => {
     ["5m / 2", "2 minutes, 30 seconds"],
     ["1h - 5s", "59 minutes, 55 seconds"],
     ["300ms * 4", "1.2 seconds"],
+    ["1h - 145.111m", "-1 hour, 25 minutes, 6.66 seconds"],
   ];
 
   it("should correctly calculate time expressions", () => {
