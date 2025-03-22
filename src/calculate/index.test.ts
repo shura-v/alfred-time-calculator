@@ -23,11 +23,11 @@ describe("Expressions", () => {
     ["1,5h - 30m", "1 hour"],
     ["1,5 h - 30 m", "1 hour"],
     ["(1 h - 5 s) / 10", "5 minutes, 59.5 seconds"],
-  ];
+  ] as const;
 
   it("should correctly calculate time expressions", () => {
     for (const [input, expectedOutput] of expressionCases) {
-      const result = calculate(input!);
+      const result = calculate(input);
       expect(result).toEqual(expectedOutput);
     }
   });
