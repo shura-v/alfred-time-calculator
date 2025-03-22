@@ -15,7 +15,7 @@
       {
         "assets": [
           {
-            "path": "dist-release/time-calculator.alfredworkflow",
+            "path": "./dist-release/time-calculator.alfredworkflow",
             "label": "Time Calculator Alfred Workflow"
           }
         ]
