@@ -17,12 +17,16 @@ jobs:
         with:
           node-version: 20
 
-      - uses: pnpm/action-setup@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
           run_install: true
 
+      - name: Build Alfred Workflow
+        run: pnpm run build:workflow
+
       - name: Run semantic-release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
