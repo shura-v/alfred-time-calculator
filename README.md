@@ -67,15 +67,18 @@ console.log(calculate("2h - 10s"));
 
 ## **⚡ Features**
 
+## **⚡ Features**
+
 - Convert expressions like `1h + 30m - 5s / 2`
-- Supports **days, hours, minutes, seconds, and milliseconds**
-- Supports `at <date>` → returns relative duration ("in 3 days" or "2 months ago")
-- Supports `in 2 days`, `3 weeks ago` → returns actual date (e.g. "Friday, March 24, 2025, 17:00")
-- Gracefully handles ultra ancient / future dates (`~25475 BC`)
+- Supports **days, hours, minutes, seconds, milliseconds**
+- Supports `at <date>` → returns relative duration (`in 3 days`, `2 months ago`)
+- Supports `in <duration>`, `<duration> ago` → returns absolute date
+- Supports **weekdays**: `in 5 weekdays`, `3 weekdays ago`
+- Handles ultra ancient / future dates: `~25475 BC`, `~12000 AD`
 - CLI support (`tc` command)
-- Works with **multiplication and division** (`2d * 3`, `1h / 2`)
-- **Formatted duration output** (`1 hour, 30 minutes`)
-- **Uses Alfred's Script Filter** (`Keyword: tc`)
+- Multiplication and division: `2d * 3`, `1h / 2`
+- Formatted output: `"1 hour, 30 minutes"`
+- Alfred support via **Script Filter**
 
 ---
 
@@ -161,6 +164,7 @@ This tool also understands natural language date expressions and returns **relat
 | `tc in 3 days`       | `Monday, March 24, 2025, 17:00` |
 | `tc 5 hours ago`     | `Friday, March 21, 2025, 12:00` |
 | `tc in 10 minutes`   | `Friday, March 21, 2025, 17:10` |
+| `tc 5 weekdays ago`  | `Friday, March 14, 2025`        |
 | `tc 30000 years ago` | `~27975 BC (too ancient)`       |
 
 ---
