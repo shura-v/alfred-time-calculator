@@ -16,12 +16,6 @@
           }
         ]
       }
-    ],
-    [
-      "@semantic-release/npm",
-      {
-        "npmPublish": true
-      }
     ]
   ]
 }
