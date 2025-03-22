@@ -22,15 +22,6 @@ jobs:
         with:
           run_install: true
 
-      - name: Build Alfred Workflow
-        run: pnpm run build:workflow
-
-      - name: 🕵️ Check workflow file exists
-        run: |
-          echo "Looking for dist-release/time-calculator.alfredworkflow"
-          ls -lh dist-release || echo "❌ No dist-release folder"
-          ls -lh dist-release/time-calculator.alfredworkflow || echo "❌ File not found"
-
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
