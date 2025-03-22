@@ -30,6 +30,10 @@ async function main() {
 
   console.log("📦  2. Preparing files...");
   const jsCode = await fs.readFile(path.join(DIST_DIR, "workflow.js"), "utf8");
+  const readme = await fs.readFile(
+    path.join(TEMPLATE_DIR, "README.MD"),
+    "utf8",
+  );
 
   const plistTemplate = await fs.readFile(
     path.join(TEMPLATE_DIR, "info.plist"),
@@ -41,6 +45,7 @@ async function main() {
 
   const finalPlist = plistTemplate
     .replace("${JS_BUNDLE}", jsCode)
+    .replace("${README}", readme)
     .replace(
       /<key>version<\/key>\s*<string>.*?<\/string>/,
       `<key>version</key>\n\t<string>${version}</string>`,
@@ -50,10 +55,8 @@ async function main() {
   mkdirSync(RELEASE_DIR, { recursive: true });
 
   await Promise.all([
-    fs.writeFile(path.join(OUTPUT_DIR, "workflow.js"), jsCode),
     fs.writeFile(path.join(OUTPUT_DIR, "info.plist"), finalPlist),
     copy("icon.png"),
-    copy("README.md"),
   ]);
 
   console.log("🧳  3. Zipping .alfredworkflow...");
