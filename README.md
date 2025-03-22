@@ -152,7 +152,7 @@ This tool also understands natural language date expressions and returns **relat
 
 > ⚠️ Note:
 > - Avoid using only a year (like `tc at 2020`) — use a full date or add a month (e.g. `tc at jan 2020`)
-> - Dates like `"tc at last sunday"` return noon (12:00) by default if no time is specified.
+> - Dates like `"tc at last sunday"` assume noon (12:00) by default if no time is specified.
 
 ### 🕓 `in <duration>` / `<duration> ago` → returns absolute date
 
