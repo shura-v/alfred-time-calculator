@@ -1,3 +1,10 @@
+## [3.8.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.8.0...v3.8.1) (2025-03-22)
+
+
+### Bug Fixes
+
+* add `TimeCalculatorResult` export ([0121e4a](https://github.com/shura-v/alfred-time-calculator/commit/0121e4ada4a59929cccb3675bbd049bb9ea5d8ac))
+
 # [3.8.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.7.0...v3.8.0) (2025-03-22)
 
 
