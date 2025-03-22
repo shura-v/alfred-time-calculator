@@ -31,7 +31,7 @@ async function main() {
   console.log("📦  2. Preparing files...");
   const jsCode = await fs.readFile(path.join(DIST_DIR, "workflow.js"), "utf8");
   const readme = await fs.readFile(
-    path.join(TEMPLATE_DIR, "README.MD"),
+    path.join(TEMPLATE_DIR, "README.md"),
     "utf8",
   );
 
