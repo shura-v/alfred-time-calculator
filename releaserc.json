@@ -6,6 +6,12 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     [
+      "@semantic-release/npm",
+      {
+        "npmPublish": true
+      }
+    ],
+    [
       "@semantic-release/exec",
       {
         "prepareCmd": "pnpm run build:workflow"
@@ -20,12 +26,6 @@
             "label": "Time Calculator Alfred Workflow"
           }
         ]
-      }
-    ],
-    [
-      "@semantic-release/npm",
-      {
-        "npmPublish": true
       }
     ]
   ]
