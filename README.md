@@ -1,5 +1,11 @@
 ### 🕒 **Time Calculator – Alfred Workflow & CLI**
 
+![Tests](https://github.com/shura-v/alfred-time-calculator/actions/workflows/test.yml/badge.svg)
+![Release](https://github.com/shura-v/alfred-time-calculator/actions/workflows/release.yml/badge.svg)
+[![npm version](https://img.shields.io/npm/v/alfred-time-calculator.svg)](https://www.npmjs.com/package/alfred-time-calculator)
+
+[⬇️ Download workflow](https://github.com/shura-v/alfred-time-calculator/releases/latest/download/time-calculator.alfredworkflow)
+
 This package allows you to **quickly calculate time expressions** like `"1h + 30m"` and get **human-readable results**.
 
 ✅ **Works as:**
