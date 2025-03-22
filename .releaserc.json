@@ -1,5 +1,7 @@
 {
-  "branches": ["main"],
+  "branches": [
+    "main"
+  ],
   "debug": true,
   "plugins": [
     "@semantic-release/commit-analyzer",
@@ -27,6 +29,16 @@
             "label": "Time Calculator Alfred Workflow"
           }
         ]
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "package.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelease.version}"
       }
     ]
   ]
