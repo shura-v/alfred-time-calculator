@@ -17,7 +17,7 @@
   "scripts": {
     "build:node": "rimraf dist && node build/node",
     "build:workflow": "rimraf dist-workflow && node build/workflow",
-    "postbuild": "tsc --emitDeclarationOnly",
+    "postbuild:node": "tsc --emitDeclarationOnly",
     "test": "cross-env TZ=UTC vitest",
     "prepublishOnly": "pnpm test && pnpm build:node"
   },
