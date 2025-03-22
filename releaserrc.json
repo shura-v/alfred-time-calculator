@@ -1,5 +1,10 @@
 {
-  "branches": ["main"],
+  "branches": [
+    {
+      "name": "main",
+      "range": ">=3.3.0"
+    }
+  ],
   "tagFormat": "${version}",
   "plugins": [
     "@semantic-release/commit-analyzer",
