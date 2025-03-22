@@ -1,7 +1,7 @@
 ### 🕒 **Time Calculator – Alfred Workflow & CLI**
 
-![Tests](https://github.com/shura-v/alfred-time-calculator/actions/workflows/test.yml/badge.svg)
-![Release](https://github.com/shura-v/alfred-time-calculator/actions/workflows/release.yml/badge.svg)
+[![Tests](https://github.com/shura-v/alfred-time-calculator/actions/workflows/test.yml/badge.svg)](https://github.com/shura-v/alfred-time-calculator/actions/workflows/test.yml)
+[![Release](https://github.com/shura-v/alfred-time-calculator/actions/workflows/release.yml/badge.svg)](https://github.com/shura-v/alfred-time-calculator/releases)
 [![npm version](https://img.shields.io/npm/v/alfred-time-calculator.svg)](https://www.npmjs.com/package/alfred-time-calculator)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
