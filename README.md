@@ -15,7 +15,7 @@ This package allows you to **quickly calculate time expressions** like `"1h + 30
 ### **1️⃣ Use as an Alfred Workflow**
 
 1. **[Download the Workflow](https://github.com/shura-v/alfred-time-calculator/releases/latest)** (
-   `Time.Calculator.alfredworkflow`)
+   `time-calculator.alfredworkflow`)
 2. Open **Alfred → Preferences → Workflows**
 3. Drag & drop the workflow
 4. Use the **keyword `tc`** in Alfred:

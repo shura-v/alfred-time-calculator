@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.alfredapp.shuravlasov.time-calculator</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>A9F2B54F-7805-4172-8BFA-61AF06343DDD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EE85E83F-6D28-46B6-9322-252EF5CC7359</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D532CFC0-EE6B-47C6-85D8-24CD3EA1302B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A9F2B54F-7805-4172-8BFA-61AF06343DDD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Shura Vlasov</string>
+	<key>description</key>
+	<string>Alfred workflow for calculating time expressions and durations</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Time calculator</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>{var:keyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string><![CDATA[${JS_BUNDLE}]]></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Try something like `1h + 30m` or `at next monday`</string>
+				<key>title</key>
+				<string>Calculate time</string>
+				<key>type</key>
+				<integer>7</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A9F2B54F-7805-4172-8BFA-61AF06343DDD</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>EE85E83F-6D28-46B6-9322-252EF5CC7359</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>D532CFC0-EE6B-47C6-85D8-24CD3EA1302B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>### 🕒 **Time Calculator Workflow for Alfred**
+
+This Alfred workflow allows you to **quickly calculate time expressions** like `"1h + 30m"` and get **human-readable results**.
+
+---
+
+## **⚡ Features**
+- Supports expressions like `1h + 30m - 5s / 2`
+- Works with **days, hours, minutes, seconds, milliseconds**
+- Understands natural language like `at next Friday 21:00` or `3 weeks ago`
+- Supports **weekdays**: `in 5 weekdays`, `3 weekdays ago`
+- Returns readable output like:
+  - `"1 hour, 30 minutes"`
+  - `"in 3 days"`
+  - `"Friday, March 24, 2025, 17:00"`
+- Uses **Alfred's Script Filter** (keyword: `tc`)
+
+---
+
+## **🚀 How to Use**
+1. Open Alfred and type: `tc 2h + 45m - 10s`
+2. See result: `"2 hours, 44 minutes, 50 seconds"`
+3. Press `Enter` to copy the result to clipboard
+
+---
+
+## **🛠 Supported Time Units**
+- `d` – days (`2d = 172800 seconds`)
+- `h` – hours (`3h = 10800 seconds`)
+- `m` – minutes (`30m = 1800 seconds`)
+- `s` – seconds (`45s = 45 seconds`)
+- `ms` – milliseconds (`500ms = 0.5 seconds`)
+
+You can **combine units** and use math:
+- `tc 1h + 30m`
+- `tc 2d * 3 - 10s`
+- `tc 5m / 2`
+
+---
+
+## 🧭 Date-Based Queries
+
+Use `at`, `in`, and `ago` for natural language date calculations:
+
+### `at &lt;date&gt;` → shows **relative duration**
+
+- `tc at august 1998` → `26 years ... ago`
+- `tc at jan 2000` → `25 years ... ago`
+- `tc at monday` → `in 2 days ...`
+- `tc at next friday 21:00` → `in 6 days ...`
+- `tc at last sunday` → `5 days ... ago` *(defaults to **12:00 noon**)*
+
+&gt; 📝 If time is not specified, it assumes **12:00 noon**
+&gt; ⚠️ Avoid using only a year (`tc at 2020`), use `tc at jan 2020` instead
+
+---
+
+### `in &lt;duration&gt;` or `&lt;duration&gt; ago` → shows **exact date**
+
+- `tc in 3 days` → `Monday, March 24, 2025, 17:00`
+- `tc 5 hours ago` → `Friday, March 21, 2025, 12:00`
+- `tc in 10 minutes` → `Friday, March 21, 2025, 17:10`
+- `tc 30000 years ago` → `~27975 BC (too ancient)`
+
+---
+
+## **⚡ Example Queries**
+- `tc 1h + 30m` → `"1 hour, 30 minutes"`
+- `tc 20d * 2` → `"40 days"`
+- `tc 5m / 2` → `"2 minutes, 30 seconds"`
+- `tc 1h - 5s` → `"59 minutes, 55 seconds"`
+- `tc 300ms * 4` → `"1.2 seconds"`
+- `tc at jan 2000` → `"25 years ... ago"`
+- `tc in 3 days` → `"Monday, March 24, 2025, 17:00"`
+
+---
+
+## **👨‍💻 Author**
+**Created by:** Shura Vlasov
+**GitHub:** [github.com/shura-v](https://github.com/shura-v)
+
+🚀 **Enjoy fast and flexible time calculations right from Alfred!**</string>
+	<key>uidata</key>
+	<dict>
+		<key>A9F2B54F-7805-4172-8BFA-61AF06343DDD</key>
+		<dict>
+			<key>xpos</key>
+			<real>230</real>
+			<key>ypos</key>
+			<real>105</real>
+		</dict>
+		<key>D532CFC0-EE6B-47C6-85D8-24CD3EA1302B</key>
+		<dict>
+			<key>xpos</key>
+			<real>65</real>
+			<key>ypos</key>
+			<real>105</real>
+		</dict>
+		<key>EE85E83F-6D28-46B6-9322-252EF5CC7359</key>
+		<dict>
+			<key>xpos</key>
+			<real>390</real>
+			<key>ypos</key>
+			<real>105</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>tc</string>
+				<key>placeholder</key>
+				<string>tc</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Choose a different keyword if "tc" is unavailable</string>
+			<key>label</key>
+			<string>Workflow keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>3.2.3</string>
+	<key>webaddress</key>
+	<string>https://github.com/shura-v/alfred-time-calculator</string>
+</dict>
+</plist>

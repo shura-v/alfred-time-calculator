@@ -1,0 +1,26 @@
+{
+  "branches": ["main"],
+  "tagFormat": "${version}",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "pnpm run build"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "dist-release/time-calculator.alfredworkflow",
+            "label": "Time Calculator Alfred Workflow"
+          }
+        ]
+      }
+    ]
+  ]
+}
