@@ -6,9 +6,10 @@
     "outDir": "dist",
     "strict": true,
     "module": "preserve",
+    "moduleResolution": "bundler",
     "declaration": true,
     "esModuleInterop": true,
-    "moduleResolution": "bundler"
+    "noUncheckedIndexedAccess": true
   },
   "include": [
     "src/**/*.ts"

@@ -3,8 +3,8 @@ import { addBusinessDays, isValid, subBusinessDays } from "date-fns";
 import { formatDate } from "./utils";
 
 function isWeekdaysExpression(text: string): number | null {
-  const match = /^(\d+)\s+weekdays?$/i.exec(text);
-  return match ? parseInt(match[1]) : null;
+  const daysStr = /^(\d+)\s+weekdays?$/i.exec(text)?.[1];
+  return daysStr ? parseInt(daysStr) : null;
 }
 
 function calculateWeekdays(input: string, isFuture: boolean): string | null {

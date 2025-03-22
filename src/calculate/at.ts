@@ -9,7 +9,7 @@ export function calculateAt(value: string): string | null {
   const results = parse(inputAt);
   if (results.length === 0) return null;
 
-  const parsed = results[0].start.date();
+  const parsed = results[0]?.start.date();
   if (!parsed || isNaN(parsed.getTime())) return null;
 
   const roundedParsed = roundToSecond(parsed);

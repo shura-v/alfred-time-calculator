@@ -24,7 +24,7 @@ describe("Expressions", () => {
 
   it("should correctly calculate time expressions", () => {
     for (const [input, expectedOutput] of expressionCases) {
-      const result = calculate(input);
+      const result = calculate(input!);
       expect(result).toEqual(expectedOutput);
     }
   });
