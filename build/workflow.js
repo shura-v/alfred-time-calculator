@@ -44,12 +44,9 @@ async function main() {
   );
 
   const finalPlist = plistTemplate
-    .replace("${JS_BUNDLE}", jsCode)
-    .replace("${README}", readme)
-    .replace(
-      /<key>version<\/key>\s*<string>.*?<\/string>/,
-      `<key>version</key>\n\t<string>${version}</string>`,
-    );
+    .replace("<workflow:js />", jsCode)
+    .replace("<workflow:readme />", readme)
+    .replace("<workflow:version />", version);
 
   mkdirSync(OUTPUT_DIR, { recursive: true });
   mkdirSync(RELEASE_DIR, { recursive: true });

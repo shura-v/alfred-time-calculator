@@ -73,7 +73,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string><![CDATA[${JS_BUNDLE}]]></string>
+				<string><![CDATA[<workflow:js />]]></string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -144,7 +144,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string><![CDATA[${README}]]></string>
+	<string><![CDATA[<workflow:readme />]]></string>
 	<key>uidata</key>
 	<dict>
 		<key>A9F2B54F-7805-4172-8BFA-61AF06343DDD</key>
@@ -196,7 +196,7 @@
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>3.2.3</string>
+	<string><workflow:version /></string>
 	<key>webaddress</key>
 	<string>https://github.com/shura-v/alfred-time-calculator</string>
 </dict>
