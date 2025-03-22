@@ -1,3 +1,10 @@
+## [3.4.7](https://github.com/shura-v/alfred-time-calculator/compare/v3.4.6...v3.4.7) (2025-03-22)
+
+
+### Bug Fixes
+
+* allow inputs like "1,5 h" and "2 d" by normalizing formatting ([4c4d764](https://github.com/shura-v/alfred-time-calculator/commit/4c4d764c83e4bc1378f48b9d589c1e4096dd6106))
+
 ## [3.4.6](https://github.com/shura-v/alfred-time-calculator/compare/v3.4.5...v3.4.6) (2025-03-22)
 
 
