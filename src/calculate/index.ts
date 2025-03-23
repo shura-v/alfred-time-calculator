@@ -8,9 +8,9 @@ export function calculate(value: string): TimeCalculatorResult | null {
   const lower = value.toLowerCase().trim();
   try {
     return (
+      calculateInterval(lower) ??
       calculateAt(lower) ??
       calculateRelative(lower) ??
-      calculateInterval(lower) ??
       calculateExpression(lower)
     );
   } catch {
