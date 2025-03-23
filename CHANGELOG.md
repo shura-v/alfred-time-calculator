@@ -1,3 +1,10 @@
+## [3.10.3](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.2...v3.10.3) (2025-03-23)
+
+
+### Bug Fixes
+
+* result -> text ([0f084a8](https://github.com/shura-v/alfred-time-calculator/commit/0f084a85e6d23d3ff4e2db1b24b6d79c0504c2ae))
+
 ## [3.10.2](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.1...v3.10.2) (2025-03-23)
 
 
