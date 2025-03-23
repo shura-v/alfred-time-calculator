@@ -1,3 +1,10 @@
+## [3.9.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.9.0...v3.9.1) (2025-03-23)
+
+
+### Bug Fixes
+
+* workflow docs ([485d377](https://github.com/shura-v/alfred-time-calculator/commit/485d377f282f857a4ddee9dce5636dc098f57bfa))
+
 # [3.9.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.8.1...v3.9.0) (2025-03-23)
 
 
