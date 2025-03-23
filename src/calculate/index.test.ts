@@ -93,6 +93,12 @@ describe("Interval", () => {
     );
   });
 
+  it("should work with `till` keyword", () => {
+    expect(calcResult("from 100000 years ago until 9999.01.01")).toEqual(
+      "107973 years 9 months 10 days 19 hours",
+    );
+  });
+
   it("should return null for invalid interval format", () => {
     expect(calcResult("from nowhere but towards destiny")).toBeNull();
     expect(calcResult("between 1pm and 3pm")).toBeNull(); // not supported format
