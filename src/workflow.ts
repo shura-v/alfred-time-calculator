@@ -1,23 +1,23 @@
 import { calculate } from "./calculate";
 
-type TimeCalculatorResult = {
-  items: TimeCalculatorResultItem[];
+type AlfredResult = {
+  items: AlfredResultItem[];
 };
 
-type TimeCalculatorResultItem = {
+type AlfredResultItem = {
   title: string;
   subtitle: string;
   arg?: string;
 };
 
-const INVALID_ITEMS: TimeCalculatorResultItem[] = [
+const INVALID_ITEMS: AlfredResultItem[] = [
   {
     title: "Invalid input",
     subtitle: 'Try something like "1h + 30m" or "at next monday"',
   },
 ];
 
-function toJSON(result: TimeCalculatorResult) {
+function toJSON(result: AlfredResult) {
   return JSON.stringify(result);
 }
 
@@ -26,16 +26,16 @@ function run(argv: Array<string>): string {
   if (!query) {
     return toJSON({ items: INVALID_ITEMS });
   }
-  const result = calculate(query);
+  const calculated = calculate(query);
   return toJSON({
     items:
-      result === null
+      calculated === null
         ? INVALID_ITEMS
         : [
             {
-              title: result.result,
-              subtitle: result.info ?? "Press Enter to copy",
-              arg: result.result,
+              title: calculated.result,
+              subtitle: calculated.info ?? "Press Enter to copy",
+              arg: calculated.result,
             },
           ],
   });
