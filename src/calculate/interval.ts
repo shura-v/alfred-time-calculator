@@ -2,10 +2,12 @@ import { parseDate } from "chrono-node";
 import { formatDuration, intervalToDuration } from "date-fns";
 import type { TimeCalculatorResult } from "./types";
 
-const PATTERN = /\bfrom (.+?) (?:to|until|till) (.+)/i;
-
 export function calculateInterval(input: string): TimeCalculatorResult | null {
-  const match = PATTERN.exec(input);
+  const normalized = input
+    .replace(/^between\s+/i, "from ")
+    .replace(/and\s+/i, "to ");
+
+  const match = /\bfrom (.+?) (?:to|until|till) (.+)/i.exec(normalized);
   if (!match) return null;
 
   const [, fromText, toText] = match;

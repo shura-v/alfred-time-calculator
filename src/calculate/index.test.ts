@@ -99,8 +99,12 @@ describe("Interval", () => {
     );
   });
 
+  it("should support `between ... and ...` format", () => {
+    expect(calcResult("between 1pm and 3pm")).toBe("2 hours");
+    expect(calcResult("between yesterday and today")).toMatch(/1 day/i);
+  });
+
   it("should return null for invalid interval format", () => {
     expect(calcResult("from nowhere but towards destiny")).toBeNull();
-    expect(calcResult("between 1pm and 3pm")).toBeNull(); // not supported format
   });
 });

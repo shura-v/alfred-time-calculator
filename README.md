@@ -173,7 +173,7 @@ This tool also understands natural language date expressions and returns **relat
 > - `weekday(s)` means **working days from Monday to Friday**
 > - **Public holidays are not taken into account**, as they vary by country
 
-### 🔁 `from ... to/until/till ...` → returns duration Between Two Dates
+### 🔁 `from ... to/until/till ...`, `between ... and ...` → returns duration Between Two Dates
 
 You can calculate the **duration between two dates or times** using natural expressions:
 
@@ -181,19 +181,21 @@ You can calculate the **duration between two dates or times** using natural expr
 
 ```
 from <date or time> to <date or time>
+between <date or time> and <date or time>
 from <date or time> until <date or time>
+from <date or time> till <date or time>
 ```
 
 > Example: `from monday to friday`, `from 10:00 until 18:30`, `from yesterday to next sunday`
 
 ### 🧪 Examples:
 
-| Input                                | Output Example        |
-|--------------------------------------|-----------------------|
-| `tc from 10:00 to 12:30`             | `2 hours, 30 minutes` |
-| `tc from monday to friday`           | `4 days`              |
-| `tc from yesterday until today`      | `1 day`               |
-| `tc from last sunday to next sunday` | `14 days`             |
+| Input                                    | Output Example        |
+|------------------------------------------|-----------------------|
+| `tc between last sunday and next sunday` | `14 days`             |
+| `tc from 10:00 to 12:30`                 | `2 hours, 30 minutes` |
+| `tc from monday to friday`               | `4 days`              |
+| `tc from yesterday until today`          | `1 day`               |
 
 > ⚠️ **Notes**:
 > - If either date is missing or can't be parsed, no result will be returned

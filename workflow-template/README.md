@@ -36,8 +36,8 @@ This Alfred Workflow allows you to **quickly calculate time expressions** like `
 - `tc in 3 days` → `"Monday, March 25, 2025"`
 - `tc at jan 2000` → `"25 years ago"`
 - `tc 2 weekdays ago` → `"Thursday, March 20, 2025"`
-- `tc from 10:00 to 12:30` → `"2 hours, 30 minutes"`
-- `tc from yesterday to next monday` → `"5 days"`
+- `tc between 10:00 and 12:30` → `"2 hours, 30 minutes"`
+- `tc between yesterday and next monday` → `"5 days"`
 - `tc from last sunday to next sunday` → `"14 days"`
 
 ---
