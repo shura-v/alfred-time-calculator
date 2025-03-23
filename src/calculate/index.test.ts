@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { calculate } from "./";
 
-function getTitle(query: string) {
-  return calculate(query)?.result;
+function calcResult(query: string) {
+  return calculate(query)?.result ?? null;
 }
 
 const fixedNow = new Date("2025-03-21T17:00:00Z");
@@ -31,47 +31,70 @@ describe("Expressions", () => {
 
   it("should correctly calculate time expressions", () => {
     for (const [input, expectedOutput] of expressionCases) {
-      const title = getTitle(input);
+      const title = calcResult(input);
       expect(title).toEqual(expectedOutput);
     }
+  });
+
+  it("should return null for invalid input", () => {
+    expect(calculate("potato salad")).toBeNull();
   });
 });
 
 describe("Duration calculations (at)", () => {
   it("should return relative duration for `at <date>`", () => {
-    expect(getTitle("at jan 2000")).toMatch(/25 years.*ago/i);
-    expect(getTitle("at next monday")).toMatch(/in \d+ days/i);
-    expect(getTitle("at last sunday")).toMatch(/\d+ days.*ago/i);
+    expect(calcResult("at jan 2000")).toMatch(/25 years.*ago/i);
+    expect(calcResult("at next monday")).toMatch(/in \d+ days/i);
+    expect(calcResult("at last sunday")).toMatch(/\d+ days.*ago/i);
   });
 
   it("should return correct relative duration from fixed date", () => {
-    expect(getTitle("at next wednesday")).toMatch(/in 4 days 19 hours/i);
-    expect(getTitle("at next wednesday at 11:00")).toMatch(
+    expect(calcResult("at next wednesday")).toMatch(/in 4 days 19 hours/i);
+    expect(calcResult("at next wednesday at 11:00")).toMatch(
       /in 4 days 18 hours/i,
     );
-    expect(getTitle("at last friday at 00:00")).toMatch(/7 days 17 hours ago/i);
+    expect(calcResult("at last friday at 00:00")).toMatch(
+      /7 days 17 hours ago/i,
+    );
   });
 });
 
 describe("Absolute date calculations (in/ago)", () => {
   it("should return absolute date for `in <duration>`", () => {
-    expect(getTitle("in 3 days")).toMatch(/March 24, 2025/i);
-    expect(getTitle("in 1 hour")).toMatch(/March 21, 2025/i);
-    expect(getTitle("in 5 weekdays")).toMatch(/Friday, March 28/i);
+    expect(calcResult("in 3 days")).toMatch(/March 24, 2025/i);
+    expect(calcResult("in 1 hour")).toMatch(/March 21, 2025/i);
+    expect(calcResult("in 5 weekdays")).toMatch(/Friday, March 28/i);
   });
 
   it("should return absolute date for `<duration> ago`", () => {
-    expect(getTitle("5 minutes ago")).toMatch(/March 21, 2025/i);
-    expect(getTitle("10 days ago")).toMatch(/March 11, 2025/i);
+    expect(calcResult("5 minutes ago")).toMatch(/March 21, 2025/i);
+    expect(calcResult("10 days ago")).toMatch(/March 11, 2025/i);
   });
 
   it("should handle ancient dates gracefully", () => {
-    expect(getTitle("30000 years ago")).toMatch(/~\d+ BC/i);
+    expect(calcResult("30000 years ago")).toMatch(/~\d+ BC/i);
   });
 });
 
-describe("Other", () => {
-  it("should return null for invalid input", () => {
-    expect(calculate("potato salad")).toBeNull();
+describe("Interval", () => {
+  it("should calculate duration between two dates", () => {
+    expect(calcResult("from yesterday to today")).toEqual("1 day");
+    expect(calcResult("from monday to friday")).toEqual("-3 days");
+    expect(calcResult("from tuesday till thursday")).toEqual("2 days");
+    expect(calcResult("from monday to next friday")).toEqual("4 days");
+    expect(calcResult("from 10:00 to 12:30")).toEqual("2 hours 30 minutes");
+    expect(calcResult("from last sunday to next sunday")).toMatch(/14 days/i);
+  });
+
+  it("should work with `until` keyword", () => {
+    expect(calcResult("from 14:00 until 17:00")).toEqual("3 hours");
+    expect(calcResult("from yesterday until next monday")).toMatch(
+      /3 days 19 hours/i,
+    );
+  });
+
+  it("should return null for invalid interval format", () => {
+    expect(calcResult("from nowhere but towards destiny")).toBeNull();
+    expect(calcResult("between 1pm and 3pm")).toBeNull(); // not supported format
   });
 });
