@@ -1,3 +1,10 @@
+# [3.10.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.9.2...v3.10.0) (2025-03-23)
+
+
+### Features
+
+* add `between ... and ...` support ([6558d0a](https://github.com/shura-v/alfred-time-calculator/commit/6558d0af1e200bcb031be632446b5fbbaf9dd957))
+
 ## [3.9.2](https://github.com/shura-v/alfred-time-calculator/compare/v3.9.1...v3.9.2) (2025-03-23)
 
 
