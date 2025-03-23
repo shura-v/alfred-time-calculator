@@ -1,3 +1,10 @@
+## [3.9.2](https://github.com/shura-v/alfred-time-calculator/compare/v3.9.1...v3.9.2) (2025-03-23)
+
+
+### Bug Fixes
+
+* correct date parsing order in interval mode ([4f2f2e8](https://github.com/shura-v/alfred-time-calculator/commit/4f2f2e8e9dc5011d1df15b98b558be30b7712a10))
+
 ## [3.9.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.9.0...v3.9.1) (2025-03-23)
 
 
