@@ -1,3 +1,10 @@
+## [3.10.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.0...v3.10.1) (2025-03-23)
+
+
+### Bug Fixes
+
+* move `chalk` to externals ([7623f39](https://github.com/shura-v/alfred-time-calculator/commit/7623f3961201291d04462d79b9c6d11b4f387853))
+
 # [3.10.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.9.2...v3.10.0) (2025-03-23)
 
 
