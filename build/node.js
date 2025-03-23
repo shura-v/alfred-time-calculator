@@ -10,5 +10,5 @@ await build({
   minify: true,
   tsconfig: "./tsconfig.json",
   legalComments: "none",
-  external: ["chrono-node", "expr-eval", "date-fns", "ms"],
+  external: ["chalk", "chrono-node", "date-fns", "expr-eval", "ms"],
 });
