@@ -17,7 +17,7 @@ export function calculateAt(value: string): TimeCalculatorResult | null {
   const roundedNow = roundToSecond(new Date());
 
   if (roundedParsed.getTime() === roundedNow.getTime()) {
-    return createResult({ result: "now" });
+    return createResult({ text: "now" });
   }
 
   const diffMs = roundedParsed.getTime() - roundedNow.getTime();
@@ -30,6 +30,6 @@ export function calculateAt(value: string): TimeCalculatorResult | null {
 
   const formatted = formatDuration(duration);
   return createResult({
-    result: isFuture ? `in ${formatted}` : `${formatted} ago`,
+    text: isFuture ? `in ${formatted}` : `${formatted} ago`,
   });
 }

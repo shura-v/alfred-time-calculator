@@ -22,6 +22,6 @@ export function calculateInterval(input: string): TimeCalculatorResult | null {
   const duration = intervalToDuration({ start: fromDate, end: toDate });
 
   return {
-    result: formatDuration(duration),
+    text: formatDuration(duration),
   };
 }

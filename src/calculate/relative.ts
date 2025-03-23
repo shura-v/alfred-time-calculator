@@ -33,7 +33,7 @@ export function calculateRelative(value: string): TimeCalculatorResult | null {
   const weekdayResult = calculateWeekdays(input, isFuture);
   if (weekdayResult) {
     return createResult({
-      result: weekdayResult,
+      text: weekdayResult,
       info: "Weekdays exclude weekends, not holidays",
     });
   }
@@ -46,11 +46,11 @@ export function calculateRelative(value: string): TimeCalculatorResult | null {
 
   const year = parsed.getFullYear();
   if (year < 0) {
-    return createResult({ result: `~${Math.abs(year)} BC (too ancient)` });
+    return createResult({ text: `~${Math.abs(year)} BC (too ancient)` });
   }
   if (year > 9999) {
-    return createResult({ result: `~${year} AD (too far in the future)` });
+    return createResult({ text: `~${year} AD (too far in the future)` });
   }
 
-  return createResult({ result: formatDate(parsed) });
+  return createResult({ text: formatDate(parsed) });
 }

@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { calculate } from "./";
 
 function calcResult(query: string) {
-  return calculate(query)?.result ?? null;
+  return calculate(query)?.text ?? null;
 }
 
 const fixedNow = new Date("2025-03-21T17:00:00Z");

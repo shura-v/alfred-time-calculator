@@ -3,17 +3,17 @@ import chalk from "chalk";
 import { calculate } from "./calculate";
 
 const input = process.argv.slice(2).join(" ");
-const calcResult = calculate(input);
+const result = calculate(input);
 
-if (!calcResult) {
+if (!result) {
   console.error(chalk.red("❌ Invalid input."));
   console.log(chalk.gray('Usage: tc "1h + 30m"'));
   process.exit(1);
 }
 
-const { info, result } = calcResult;
+const { info, text } = result;
 
-console.info(chalk.green(result));
+console.info(chalk.green(text));
 
 if (info) {
   console.log(chalk.gray(info));

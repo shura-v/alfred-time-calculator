@@ -26,16 +26,16 @@ function run(argv: Array<string>): string {
   if (!query) {
     return toJSON({ items: INVALID_ITEMS });
   }
-  const calculated = calculate(query);
+  const result = calculate(query);
   return toJSON({
     items:
-      calculated === null
+      result === null
         ? INVALID_ITEMS
         : [
             {
-              title: calculated.result,
-              subtitle: calculated.info ?? "Press Enter to copy",
-              arg: calculated.result,
+              title: result.text,
+              subtitle: result.info ?? "Press Enter to copy",
+              arg: result.text,
             },
           ],
   });

@@ -1,13 +1,13 @@
 import type { TimeCalculatorResult } from "../types";
 
 type TCreateResultArgs = {
-  result: string;
+  text: string;
   info?: string;
 };
 
 export function createResult({
-  result,
+  text,
   info,
 }: TCreateResultArgs): TimeCalculatorResult {
-  return { result, info };
+  return { text, info };
 }

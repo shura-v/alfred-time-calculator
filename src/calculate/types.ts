@@ -1,4 +1,4 @@
 export type TimeCalculatorResult = {
-  result: string;
+  text: string;
   info?: string;
 };
