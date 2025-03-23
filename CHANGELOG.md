@@ -1,3 +1,10 @@
+## [3.10.2](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.1...v3.10.2) (2025-03-23)
+
+
+### Bug Fixes
+
+* surround `and` with spaces ([32dc264](https://github.com/shura-v/alfred-time-calculator/commit/32dc26418bde34715bbe5262b6092bfdd0bfd659))
+
 ## [3.10.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.0...v3.10.1) (2025-03-23)
 
 
