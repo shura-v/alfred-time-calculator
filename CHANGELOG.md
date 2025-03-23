@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.8.1...v3.9.0) (2025-03-23)
+
+
+### Features
+
+* add support for interval queries using `from ... to/until/till` ([dbc9653](https://github.com/shura-v/alfred-time-calculator/commit/dbc96532cc9b4a58841bbb4a91b83d0990003c05))
+
 ## [3.8.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.8.0...v3.8.1) (2025-03-22)
 
 
