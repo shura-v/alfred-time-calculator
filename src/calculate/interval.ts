@@ -5,7 +5,7 @@ import type { TimeCalculatorResult } from "./types";
 export function calculateInterval(input: string): TimeCalculatorResult | null {
   const normalized = input
     .replace(/^between\s+/i, "from ")
-    .replace(/and\s+/i, "to ");
+    .replace(/\sand\s+/i, " to ");
 
   const match = /\bfrom (.+?) (?:to|until|till) (.+)/i.exec(normalized);
   if (!match) return null;
