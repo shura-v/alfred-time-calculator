@@ -16,6 +16,7 @@ This Alfred Workflow allows you to **quickly calculate time expressions** like `
   - `tc in 5 days`
   - `tc 3 hours ago`
   - `tc at next friday`
+  - `tc from monday to friday`
 - Supports **weekdays**:  
   `in 5 weekdays`, `3 weekdays ago`
 - Works even with ancient or futuristic dates:  
@@ -28,19 +29,6 @@ This Alfred Workflow allows you to **quickly calculate time expressions** like `
 
 ---
 
-## 🔁 Interval mode (`from ... to` / `until`)
-
-You can calculate the **duration between two dates or times** using natural language:
-
-- `tc from monday to friday` → `"4 days"`
-- `tc from 10:00 to 12:30` → `"2 hours, 30 minutes"`
-- `tc from yesterday to next monday` → `"5 days"`
-- `tc from last sunday to next sunday` → `"14 days"`
-
-> ℹ️ This returns the **absolute duration** between the two points in time — no `"in"` or `"ago"`.
-
----
-
 ## 💡 Examples
 
 - `tc 1h + 30m` → `"1 hour, 30 minutes"`
@@ -48,6 +36,9 @@ You can calculate the **duration between two dates or times** using natural lang
 - `tc in 3 days` → `"Monday, March 25, 2025"`
 - `tc at jan 2000` → `"25 years ago"`
 - `tc 2 weekdays ago` → `"Thursday, March 20, 2025"`
+- `tc from 10:00 to 12:30` → `"2 hours, 30 minutes"`
+- `tc from yesterday to next monday` → `"5 days"`
+- `tc from last sunday to next sunday` → `"14 days"`
 
 ---
 
