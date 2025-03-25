@@ -1,3 +1,10 @@
+## [3.10.5](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.4...v3.10.5) (2025-03-25)
+
+
+### Bug Fixes
+
+* Revert "fix: correct rounding for negative dates" ([5f84cf0](https://github.com/shura-v/alfred-time-calculator/commit/5f84cf094b3a05aa1b94ac1b2356ddcda8d7fc75))
+
 ## [3.10.4](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.3...v3.10.4) (2025-03-25)
 
 
