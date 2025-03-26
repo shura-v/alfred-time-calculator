@@ -2,7 +2,11 @@ import { calculateAt } from "./at";
 import { calculateExpression } from "./expression";
 import { calculateInterval } from "./interval";
 import { calculateRelative } from "./relative";
-import type { TimeCalculatorResult } from "./types";
+import type {
+  TimeCalculatorResult,
+  TimeCalculatorResultFailure,
+  TimeCalculatorResultSuccess,
+} from "./types";
 import { createErrorResult } from "./utils";
 
 function getResult(input: string): TimeCalculatorResult {
@@ -33,4 +37,8 @@ export function calculate(query: string): TimeCalculatorResult {
   }
 }
 
-export * from "./types";
+export {
+  TimeCalculatorResult,
+  TimeCalculatorResultSuccess,
+  TimeCalculatorResultFailure,
+};
