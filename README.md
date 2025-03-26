@@ -14,6 +14,8 @@ This package allows you to **quickly calculate time expressions** like `"1h + 30
 - **CLI tool** (`tc "1h + 30m"`)
 - **Node.js module** (`import { calculate } from "alfred-time-calculator"`)
 
+> 🏆 Featured in [Amazing Alfred Workflows](https://github.com/learn-anything/alfred-workflows)
+
 ---
 
 ## **🚀 Installation**
