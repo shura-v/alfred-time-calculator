@@ -1,15 +1,28 @@
-import type { TimeCalculatorResult } from "../types";
+import type {
+  TimeCalculatorResultFailure,
+  TimeCalculatorResultSuccess,
+} from "../types";
 
-type TCreateResultArgs = {
+type TCreateResultSuccess = {
   text: string;
   info?: string;
-  isError?: boolean;
 };
 
-export function createResult({
+type TCreateResultFailure = {
+  text: string;
+  info: string;
+};
+
+export function createSuccessResult({
   text,
   info,
-  isError = false,
-}: TCreateResultArgs): TimeCalculatorResult {
-  return { text, info, ok: !isError };
+}: TCreateResultSuccess): TimeCalculatorResultSuccess {
+  return { text, info, ok: true };
+}
+
+export function createErrorResult({
+  text,
+  info,
+}: TCreateResultFailure): TimeCalculatorResultFailure {
+  return { text, info, ok: false };
 }

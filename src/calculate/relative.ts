@@ -1,7 +1,7 @@
 import { parseDate } from "chrono-node";
 import { addBusinessDays, isValid, subBusinessDays } from "date-fns";
 import type { TimeCalculatorResult } from "./types";
-import { createResult, formatDate } from "./utils";
+import { createSuccessResult, formatDate } from "./utils";
 
 /**
  * - "in ..."
@@ -34,7 +34,7 @@ function calculateRelativeWeekdays(
     ? addBusinessDays(now, days)
     : subBusinessDays(now, days);
 
-  return createResult({
+  return createSuccessResult({
     text: formatRelativeDate(result),
     info: "Weekdays exclude weekends, not holidays",
   });
@@ -50,7 +50,7 @@ function calculateRelativeOther(
     return null;
   }
 
-  return createResult({ text: formatRelativeDate(parsed) });
+  return createSuccessResult({ text: formatRelativeDate(parsed) });
 }
 
 function formatRelativeDate(date: Date): string {

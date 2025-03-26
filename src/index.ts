@@ -1,1 +1,5 @@
-export { calculate, type TimeCalculatorResult } from "./calculate";
+export {
+  calculate,
+  type TimeCalculatorResult,
+  type TimeCalculatorResultFailure,
+} from "./calculate";

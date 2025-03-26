@@ -3,6 +3,7 @@ import { calculateExpression } from "./expression";
 import { calculateInterval } from "./interval";
 import { calculateRelative } from "./relative";
 import type { TimeCalculatorResult } from "./types";
+import { createErrorResult } from "./utils";
 
 function getResult(input: string): TimeCalculatorResult {
   if (!input) {
@@ -25,12 +26,11 @@ export function calculate(query: string): TimeCalculatorResult {
   try {
     return getResult(lower);
   } catch {
-    return {
+    return createErrorResult({
       text: "Invalid input",
       info: `Try something like "1h + 30m" or "at next monday"`,
-      ok: false,
-    };
+    });
   }
 }
 
-export { type TimeCalculatorResult };
+export * from "./types";

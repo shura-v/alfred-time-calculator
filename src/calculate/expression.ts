@@ -1,7 +1,7 @@
 import { Parser } from "expr-eval";
 import ms, { type StringValue } from "ms";
 import type { TimeCalculatorResult } from "./types";
-import { createResult, humanizeDuration } from "./utils";
+import { createSuccessResult, humanizeDuration } from "./utils";
 
 /**
  * "1h + 30m"
@@ -21,5 +21,5 @@ export function calculateExpression(
   if (isNaN(totalSeconds)) {
     return null;
   }
-  return createResult({ text: humanizeDuration(totalSeconds) });
+  return createSuccessResult({ text: humanizeDuration(totalSeconds) });
 }

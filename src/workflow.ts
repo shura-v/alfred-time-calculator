@@ -13,11 +13,16 @@ type AlfredResultItem = {
 function toAlfredResult(result: TimeCalculatorResult): AlfredResult {
   return {
     items: [
-      {
-        title: result.text,
-        subtitle: result.info ?? "Press Enter to copy",
-        arg: result.text,
-      },
+      result.ok
+        ? {
+            title: result.text,
+            subtitle: result.info ?? "Press Enter to copy",
+            arg: result.text,
+          }
+        : {
+            title: result.text,
+            subtitle: result.info,
+          },
     ],
   };
 }
