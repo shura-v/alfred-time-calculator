@@ -21,7 +21,8 @@
     "build:workflow": "rimraf dist-workflow dist-release && node build/workflow",
     "postbuild:node": "tsc --emitDeclarationOnly",
     "test": "cross-env TZ=UTC vitest --run",
-    "prepublishOnly": "pnpm test && pnpm build:node"
+    "prepublishOnly": "pnpm test && pnpm build:node",
+    "prepare": "husky"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -59,6 +60,7 @@
     "archiver": "^7.0.1",
     "cross-env": "^7.0.3",
     "esbuild": "^0.25.1",
+    "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.3",
