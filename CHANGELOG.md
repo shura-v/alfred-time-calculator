@@ -1,3 +1,10 @@
+# [3.11.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.5...v3.11.0) (2025-03-26)
+
+
+### Features
+
+* supports "business days" ([3a2b67d](https://github.com/shura-v/alfred-time-calculator/commit/3a2b67d9cceb19c2642ee7f0ff83cc5a65a00184))
+
 ## [3.10.5](https://github.com/shura-v/alfred-time-calculator/compare/v3.10.4...v3.10.5) (2025-03-25)
 
 
