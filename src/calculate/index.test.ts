@@ -63,6 +63,7 @@ describe("Absolute date calculations (in/ago)", () => {
     expect(getText("in 1 hour")).toMatch(/March 21, 2025/i);
     expect(getText("in 5 weekdays")).toMatch(/Friday, March 28/i);
     expect(getText("999999 weekdays ago")).toMatch(/1808 BC/i);
+    expect(getText("in 2999999 weekdays")).toMatch(/13524 AD/i);
   });
 
   it("should return absolute date for `<duration> ago`", () => {

@@ -25,7 +25,7 @@ function calculateRelativeWeekdays(
   input: string,
   isFuture: boolean,
 ): TimeCalculatorResult | null {
-  const daysStr = /^(\d+)\s+weekdays?$/i.exec(input)?.[1];
+  const daysStr = /^(\d+)\s+(weekdays?|business days?)$/i.exec(input)?.[1];
   const days = daysStr ? parseInt(daysStr) : null;
   if (days === null) return null;
 
