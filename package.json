@@ -1,7 +1,7 @@
 {
   "name": "alfred-time-calculator",
   "type": "module",
-  "version": "3.11.2",
+  "version": "3.11.3",
   "packageManager": "pnpm@9.0.0",
   "description": "Alfred workflow for calculating time expressions and durations",
   "license": "MIT",
