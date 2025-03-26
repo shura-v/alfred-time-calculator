@@ -3,13 +3,30 @@ import { addBusinessDays, isValid, subBusinessDays } from "date-fns";
 import type { TimeCalculatorResult } from "./types";
 import { createResult, formatDate } from "./utils";
 
-function isWeekdaysExpression(text: string): number | null {
-  const daysStr = /^(\d+)\s+weekdays?$/i.exec(text)?.[1];
-  return daysStr ? parseInt(daysStr) : null;
+/**
+ * - "in ..."
+ * - "... ago"
+ */
+export function calculateRelative(input: string): TimeCalculatorResult | null {
+  const inputIn = input.match(/^in\s+(.+)$/i)?.[1]?.trim();
+  const inputAgo = input.match(/^(.+)\s+ago$/i)?.[1]?.trim();
+  if (!inputIn && !inputAgo) {
+    return null;
+  }
+  const isFuture = Boolean(inputIn);
+  const inputMatch = inputIn || inputAgo || "";
+  return (
+    calculateRelativeWeekdays(inputMatch, isFuture) ??
+    calculateRelativeOther(inputMatch, isFuture)
+  );
 }
 
-function calculateWeekdays(input: string, isFuture: boolean): string | null {
-  const days = isWeekdaysExpression(input);
+function calculateRelativeWeekdays(
+  input: string,
+  isFuture: boolean,
+): TimeCalculatorResult | null {
+  const daysStr = /^(\d+)\s+weekdays?$/i.exec(input)?.[1];
+  const days = daysStr ? parseInt(daysStr) : null;
   if (days === null) return null;
 
   const now = new Date();
@@ -17,40 +34,33 @@ function calculateWeekdays(input: string, isFuture: boolean): string | null {
     ? addBusinessDays(now, days)
     : subBusinessDays(now, days);
 
-  return formatDate(result);
+  return createResult({
+    text: formatRelativeDate(result),
+    info: "Weekdays exclude weekends, not holidays",
+  });
 }
 
-export function calculateRelative(value: string): TimeCalculatorResult | null {
-  const inputIn = value.match(/^in\s+(.+)$/i)?.[1]?.trim();
-  const inputAgo = value.match(/^(.+)\s+ago$/i)?.[1]?.trim();
-  if (!inputIn && !inputAgo) {
-    return null;
-  }
-
-  const input = inputIn || inputAgo || "";
-  const isFuture = Boolean(inputIn);
-
-  const weekdayResult = calculateWeekdays(input, isFuture);
-  if (weekdayResult) {
-    return createResult({
-      text: weekdayResult,
-      info: "Weekdays exclude weekends, not holidays",
-    });
-  }
-
+function calculateRelativeOther(
+  input: string,
+  isFuture: boolean,
+): TimeCalculatorResult | null {
   const expression = isFuture ? `${input} from now` : `${input} ago`;
   const parsed = parseDate(expression);
   if (!parsed || !isValid(parsed)) {
     return null;
   }
 
-  const year = parsed.getFullYear();
+  return createResult({ text: formatRelativeDate(parsed) });
+}
+
+function formatRelativeDate(date: Date): string {
+  const year = date.getFullYear();
   if (year < 0) {
-    return createResult({ text: `~${Math.abs(year)} BC (too ancient)` });
+    return `~${Math.abs(year)} BC (too ancient)`;
   }
   if (year > 9999) {
-    return createResult({ text: `~${year} AD (too far in the future)` });
+    return `~${year} AD (too far in the future)`;
   }
 
-  return createResult({ text: formatDate(parsed) });
+  return formatDate(date);
 }

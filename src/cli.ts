@@ -5,9 +5,9 @@ import { calculate } from "./calculate";
 const input = process.argv.slice(2).join(" ");
 const result = calculate(input);
 
-if (!result) {
-  console.error(chalk.red("❌ Invalid input."));
-  console.log(chalk.gray('Usage: tc "1h + 30m"'));
+if (!result.ok) {
+  console.error(chalk.red(`❌  ${result.text}`));
+  console.log(chalk.gray(result.info));
   process.exit(1);
 }
 

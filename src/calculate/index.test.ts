@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { calculate } from "./";
 
 function getText(query: string) {
-  return calculate(query)?.text ?? null;
+  return calculate(query)?.text;
 }
 
 const fixedNow = new Date("2025-03-21T17:00:00Z");
@@ -36,8 +36,8 @@ describe("Expressions", () => {
     }
   });
 
-  it("should return null for invalid input", () => {
-    expect(calculate("potato salad")).toBeNull();
+  it("should return error for invalid input", () => {
+    expect(calculate("potato salad").ok).toBe(false);
   });
 });
 
@@ -62,6 +62,7 @@ describe("Absolute date calculations (in/ago)", () => {
     expect(getText("in 3 days")).toMatch(/March 24, 2025/i);
     expect(getText("in 1 hour")).toMatch(/March 21, 2025/i);
     expect(getText("in 5 weekdays")).toMatch(/Friday, March 28/i);
+    expect(getText("999999 weekdays ago")).toMatch(/1808 BC/i);
   });
 
   it("should return absolute date for `<duration> ago`", () => {
@@ -102,7 +103,7 @@ describe("Interval", () => {
     expect(getText("between yesterday and today")).toMatch(/1 day/i);
   });
 
-  it("should return null for invalid interval format", () => {
-    expect(getText("from nowhere but towards destiny")).toBeNull();
+  it("should return error for invalid interval format", () => {
+    expect(calculate("from nowhere but towards destiny").ok).toBe(false);
   });
 });

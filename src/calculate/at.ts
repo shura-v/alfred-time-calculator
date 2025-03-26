@@ -3,8 +3,8 @@ import { formatDuration, intervalToDuration } from "date-fns";
 import type { TimeCalculatorResult } from "./types";
 import { createResult, roundToSecond } from "./utils";
 
-export function calculateAt(value: string): TimeCalculatorResult | null {
-  const inputAt = value.match(/^at\s+(.*)/i)?.[1]?.trim();
+export function calculateAt(input: string): TimeCalculatorResult | null {
+  const inputAt = input.match(/^at\s+(.*)/i)?.[1]?.trim();
   if (!inputAt) return null;
 
   const results = parse(inputAt);

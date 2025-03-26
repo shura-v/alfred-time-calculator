@@ -4,17 +4,32 @@ import { calculateInterval } from "./interval";
 import { calculateRelative } from "./relative";
 import type { TimeCalculatorResult } from "./types";
 
-export function calculate(value: string): TimeCalculatorResult | null {
-  const lower = value.toLowerCase().trim();
+function getResult(input: string): TimeCalculatorResult {
+  if (!input) {
+    throw new TypeError("empty query");
+  }
+
+  const result =
+    calculateInterval(input) ??
+    calculateAt(input) ??
+    calculateRelative(input) ??
+    calculateExpression(input);
+  if (!result) {
+    throw new TypeError("empty result");
+  }
+  return result;
+}
+
+export function calculate(query: string): TimeCalculatorResult {
+  const lower = query.toLowerCase().trim();
   try {
-    return (
-      calculateInterval(lower) ??
-      calculateAt(lower) ??
-      calculateRelative(lower) ??
-      calculateExpression(lower)
-    );
+    return getResult(lower);
   } catch {
-    return null;
+    return {
+      text: "Invalid input",
+      info: `Try something like "1h + 30m" or "at next monday"`,
+      ok: false,
+    };
   }
 }
 

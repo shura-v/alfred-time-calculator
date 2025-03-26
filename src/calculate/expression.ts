@@ -3,11 +3,14 @@ import ms, { type StringValue } from "ms";
 import type { TimeCalculatorResult } from "./types";
 import { createResult, humanizeDuration } from "./utils";
 
+/**
+ * "1h + 30m"
+ */
 export function calculateExpression(
-  value: string,
+  input: string,
 ): TimeCalculatorResult | null {
   const parser = new Parser();
-  const expression = value
+  const expression = input
     .replaceAll(/,/g, ".") // replace commas with dots
     .replaceAll(/(\d+\.?\d*)\s*([a-z]+)/gi, "$1$2") // remove spaces between number and unit
     .replaceAll(/(\d+\.?\d*[a-z]+)/g, (match) => {

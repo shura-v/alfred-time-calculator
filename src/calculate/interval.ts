@@ -1,7 +1,12 @@
 import { parseDate } from "chrono-node";
 import { formatDuration, intervalToDuration } from "date-fns";
 import type { TimeCalculatorResult } from "./types";
+import { createResult } from "./utils";
 
+/**
+ * - "from ... to/till/until ..."
+ * - "between ... and ..."
+ */
 export function calculateInterval(input: string): TimeCalculatorResult | null {
   const normalized = input
     .replace(/^between\s+/i, "from ")
@@ -21,7 +26,7 @@ export function calculateInterval(input: string): TimeCalculatorResult | null {
 
   const duration = intervalToDuration({ start: fromDate, end: toDate });
 
-  return {
+  return createResult({
     text: formatDuration(duration),
-  };
+  });
 }
