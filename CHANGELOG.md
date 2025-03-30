@@ -1,3 +1,10 @@
+## [3.12.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.12.0...v3.12.1) (2025-03-30)
+
+
+### Bug Fixes
+
+* package.json files ([b9dc336](https://github.com/shura-v/alfred-time-calculator/commit/b9dc336596e96f18d7237c2d59118c1e058b1258))
+
 # [3.12.0](https://github.com/shura-v/alfred-time-calculator/compare/v3.11.3...v3.12.0) (2025-03-30)
 
 
