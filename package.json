@@ -29,9 +29,7 @@
     "tc": "dist/cli.js"
   },
   "files": [
-    "dist/index.js",
-    "dist/cli.js",
-    "dist/**/*.d.ts"
+    "dist/*"
   ],
   "keywords": [
     "alfred",
