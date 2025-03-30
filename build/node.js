@@ -1,14 +1,14 @@
-import { build } from "esbuild";
+import { build } from "tsup";
 
 await build({
   entryPoints: ["./src/index.ts", "./src/cli.ts"],
-  outdir: "dist",
+  outDir: "dist",
   platform: "node",
   target: "node16",
   bundle: true,
   format: "esm",
   minify: true,
-  tsconfig: "./tsconfig.json",
+  dts: true,
   legalComments: "none",
   external: ["chalk", "chrono-node", "date-fns", "expr-eval", "ms"],
 });
