@@ -20,6 +20,7 @@
     "build:node": "rimraf dist && node build/node",
     "build:workflow": "rimraf dist-workflow dist-release && node build/workflow",
     "test": "cross-env TZ=UTC vitest --run",
+    "test:coverage": "pnpm test -- --coverage",
     "prepublishOnly": "pnpm test && pnpm build:node",
     "prepare": "husky"
   },
@@ -54,6 +55,7 @@
     "@types/archiver": "^6.0.3",
     "@types/ms": "^2.1.0",
     "@types/node": "^22.13.10",
+    "@vitest/coverage-v8": "3.0.9",
     "archiver": "^7.0.1",
     "cross-env": "^7.0.3",
     "esbuild": "^0.25.2",

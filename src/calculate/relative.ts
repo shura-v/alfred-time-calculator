@@ -14,7 +14,7 @@ export function calculateRelative(input: string): TimeCalculatorResult | null {
     return null;
   }
   const isFuture = Boolean(inputIn);
-  const inputMatch = inputIn || inputAgo || "";
+  const inputMatch = (inputIn || inputAgo) as string;
   return (
     calculateRelativeWeekdays(inputMatch, isFuture) ??
     calculateRelativeOther(inputMatch, isFuture)

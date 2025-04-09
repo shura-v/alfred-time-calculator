@@ -7,12 +7,10 @@ export function calculateAt(input: string): TimeCalculatorResult | null {
   const inputAt = input.match(/^at\s+(.*)/i)?.[1]?.trim();
   if (!inputAt) return null;
 
-  const results = parse(inputAt);
-  if (results.length === 0) return null;
+  const [result] = parse(inputAt);
+  if (!result) return null;
 
-  const parsed = results[0]?.start.date();
-  if (!parsed || isNaN(parsed.getTime())) return null;
-
+  const parsed = result.start.date();
   const roundedParsed = roundToSecond(parsed);
   const roundedNow = roundToSecond(new Date());
 

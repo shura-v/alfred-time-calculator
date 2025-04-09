@@ -5,10 +5,6 @@ const formatSeconds = (x: number) =>
   }).format(x);
 
 export function humanizeDuration(seconds: number): string {
-  if (Number.isNaN(seconds)) {
-    throw new TypeError("second argument must be a number");
-  }
-
   const isNegative = seconds < 0;
   const absSeconds = Math.abs(seconds);
 

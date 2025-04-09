@@ -36,8 +36,20 @@ describe("Expressions", () => {
     }
   });
 
+  it("should return '0 seconds'", () => {
+    expect(getText("0h + 0ms")).toBe("0 seconds");
+  });
+
+  it("should return error if result is NaN", () => {
+    expect(calculate("sqrt(-1)").ok).toBe(false);
+  });
+
   it("should return error for invalid input", () => {
     expect(calculate("potato salad").ok).toBe(false);
+  });
+
+  it("should return error for empty input", () => {
+    expect(calculate("   ").ok).toBe(false);
   });
 });
 
@@ -54,6 +66,18 @@ describe("Duration calculations (at)", () => {
       /in 4 days 18 hours/i,
     );
     expect(getText("at last friday at 00:00")).toMatch(/7 days 17 hours ago/i);
+  });
+
+  it("should return 'now'", () => {
+    expect(getText("at 2025-03-21T17:00:00Z")).toBe("now");
+  });
+
+  it("invalid input", () => {
+    expect(calculate("at ...").ok).toBe(false);
+  });
+
+  it("too far in future", () => {
+    expect(calculate("at 9999999 jan").ok).toBe(false);
   });
 });
 
@@ -108,6 +132,15 @@ describe("Interval", () => {
     expect(calculate("in 7 hours, 2 minutes").text).toBe(
       "Saturday, March 22, 2025 at 00:02",
     );
+  });
+
+  it("should return error if too far", () => {
+    expect(calculate("in 99999999 years").ok).toBe(false);
+  });
+
+  it("should return error if empty", () => {
+    expect(calculate("in").ok).toBe(false);
+    expect(calculate("ago").ok).toBe(false);
   });
 
   it("should return error for invalid interval format", () => {
