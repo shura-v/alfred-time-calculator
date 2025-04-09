@@ -104,6 +104,12 @@ describe("Interval", () => {
     expect(getText("between yesterday and today")).toMatch(/1 day/i);
   });
 
+  it("should return valid hours", () => {
+    expect(calculate("in 7 hours, 2 minutes").text).toBe(
+      "Saturday, March 22, 2025 at 00:02",
+    );
+  });
+
   it("should return error for invalid interval format", () => {
     expect(calculate("from nowhere but towards destiny").ok).toBe(false);
   });

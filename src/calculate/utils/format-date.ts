@@ -1,11 +1,5 @@
-export function formatDate(date: Date, locale = "en-US"): string {
-  return new Intl.DateTimeFormat(locale, {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }).format(date);
+import { format } from "date-fns";
+
+export function formatDate(date: Date): string {
+  return format(date, "EEEE, MMMM d, yyyy 'at' HH:mm");
 }
