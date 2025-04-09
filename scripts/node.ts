@@ -10,4 +10,7 @@ await build({
   minify: true,
   dts: true,
   external: ["chalk", "chrono-node", "date-fns", "expr-eval", "ms"],
+  banner: {
+    js: "#!/usr/bin/env node",
+  },
 });

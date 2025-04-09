@@ -1,8 +1,7 @@
-#!/usr/bin/env node
 import chalk from "chalk";
 import { calculate } from "./calculate";
 
-const input = process.argv.slice(2).join(" ");
+const input: string = process.argv.slice(2).join(" ");
 const result = calculate(input);
 
 if (!result.ok) {
