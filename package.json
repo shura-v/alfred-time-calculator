@@ -21,6 +21,7 @@
     "build:workflow": "rimraf dist-workflow dist-release && node build/workflow",
     "test": "cross-env TZ=UTC vitest --run",
     "test:coverage": "pnpm test -- --coverage",
+    "test:watch": "cross-env TZ=UTC vitest --watch",
     "prepublishOnly": "pnpm test && pnpm build:node",
     "prepare": "husky"
   },

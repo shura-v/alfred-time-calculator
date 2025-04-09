@@ -4,6 +4,7 @@
 [![Release](https://github.com/shura-v/alfred-time-calculator/actions/workflows/release.yml/badge.svg)](https://github.com/shura-v/alfred-time-calculator/releases)
 [![npm version](https://img.shields.io/npm/v/alfred-time-calculator.svg)](https://www.npmjs.com/package/alfred-time-calculator)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Test Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen?style=flat-square)](https://github.com/shura-v/alfred-time-calculator/actions/workflows/test.yml)
 [![Workflows](https://img.shields.io/badge/-more%20workflows-0a0a0a.svg?style=flat&colorA=0a0a0a)](https://github.com/learn-anything/alfred-workflows)
 
 This package allows you to **quickly calculate time expressions** like `"1h + 30m"` and get **human-readable results**.
