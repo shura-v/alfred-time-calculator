@@ -62,24 +62,24 @@ async function main() {
   console.log(`✅  Done! Ready: ${FINAL_ARCHIVE}`);
 }
 
-async function copy(fileName) {
+async function copy(fileName: string) {
   const src = path.join(TEMPLATE_DIR, fileName);
   const dest = path.join(OUTPUT_DIR, fileName);
   await fs.copyFile(src, dest);
 }
 
-async function zipDirectory(sourceDir, outPath) {
+async function zipDirectory(sourceDir: string, outPath: string) {
   const archive = archiver("zip", { zlib: { level: 9 } });
   const stream = createWriteStream(outPath);
 
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     archive.directory(sourceDir, false).on("error", reject).pipe(stream);
     stream.on("close", () => resolve());
     archive.finalize();
   });
 }
 
-main().catch((err) => {
+main().catch((err: unknown) => {
   console.error("❌  Build failed:", err);
   process.exit(1);
 });

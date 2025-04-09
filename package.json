@@ -17,8 +17,8 @@
   },
   "scripts": {
     "build": "pnpm build:node && pnpm build:workflow",
-    "build:node": "rimraf dist && node build/node",
-    "build:workflow": "rimraf dist-workflow dist-release && node build/workflow",
+    "build:node": "rimraf dist && tsx scripts/node.ts",
+    "build:workflow": "rimraf dist-workflow dist-release && tsx scripts/workflow.ts",
     "test": "cross-env TZ=UTC vitest --run",
     "test:coverage": "pnpm test -- --coverage",
     "test:watch": "cross-env TZ=UTC vitest --watch",
@@ -43,7 +43,8 @@
     "chrono-node": "^2.7.8",
     "date-fns": "^4.1.0",
     "expr-eval": "^2.0.2",
-    "ms": "^2.1.3"
+    "ms": "^2.1.3",
+    "tsx": "^4.19.3"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
