@@ -9,7 +9,8 @@
       {
         "preset": "angular",
         "releaseRules": [
-          { "type": "refactor", "release": "patch" }
+          { "type": "refactor", "release": "patch" },
+          { "type": "build", "release": "patch" }
         ]
       }
     ],

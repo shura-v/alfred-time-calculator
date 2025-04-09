@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { createWriteStream, mkdirSync } from "fs";
 import archiver from "archiver";
-import { build } from "tsup";
+import { build } from "esbuild";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -22,7 +22,7 @@ async function main() {
     format: "esm",
     bundle: true,
     tsconfig: "./tsconfig.json",
-    outDir: DIST_DIR,
+    outdir: DIST_DIR,
     mainFields: ["module", "main"],
     minify: true,
     legalComments: "none",
