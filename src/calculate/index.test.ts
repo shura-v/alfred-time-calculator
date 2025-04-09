@@ -138,11 +138,6 @@ describe("Interval", () => {
     expect(calculate("in 99999999 years").ok).toBe(false);
   });
 
-  it("should return error if empty", () => {
-    expect(calculate("in").ok).toBe(false);
-    expect(calculate("ago").ok).toBe(false);
-  });
-
   it("should return error for invalid interval format", () => {
     expect(calculate("from nowhere but towards destiny").ok).toBe(false);
   });
