@@ -8,7 +8,7 @@ import { build } from "esbuild";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DIST_DIR = path.resolve(__dirname, "../dist-workflow");
-const TEMPLATE_DIR = path.resolve(__dirname, "../workflow-template");
+const TEMPLATE_DIR = path.resolve(__dirname, "../assets");
 const OUTPUT_DIR = path.join(DIST_DIR, "package");
 const RELEASE_DIR = path.resolve(__dirname, "../dist-release");
 const FINAL_ARCHIVE = path.join(RELEASE_DIR, "time-calculator.alfredworkflow");
