@@ -1,3 +1,10 @@
+## [3.12.2](https://github.com/shura-v/alfred-time-calculator/compare/v3.12.1...v3.12.2) (2025-04-09)
+
+
+### Bug Fixes
+
+* replace Intl formatter with date-fns to avoid 24:xx bug in Node 20 ([cee2228](https://github.com/shura-v/alfred-time-calculator/commit/cee22289a658570498c2e0a8c0d1c9c3b96222a1))
+
 ## [3.12.1](https://github.com/shura-v/alfred-time-calculator/compare/v3.12.0...v3.12.1) (2025-03-30)
 
 
