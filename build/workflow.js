@@ -19,7 +19,7 @@ async function main() {
     entryPoints: ["./src/workflow.ts"],
     target: "es6",
     platform: "neutral",
-    format: "esm",
+    format: "iife",
     bundle: true,
     tsconfig: "./tsconfig.json",
     outdir: DIST_DIR,
