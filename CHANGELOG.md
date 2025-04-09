@@ -1,3 +1,5 @@
+## [3.12.6](https://github.com/shura-v/alfred-time-calculator/compare/v3.12.5...v3.12.6) (2025-04-09)
+
 ## [3.12.5](https://github.com/shura-v/alfred-time-calculator/compare/v3.12.4...v3.12.5) (2025-04-09)
 
 ## [3.12.4](https://github.com/shura-v/alfred-time-calculator/compare/v3.12.3...v3.12.4) (2025-04-09)
