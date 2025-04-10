@@ -34,8 +34,16 @@ This package allows you to **quickly calculate time expressions** like `"1h + 30
 
 ### **2️⃣ Use as a CLI (`tc` command)**
 
+You can install the package globally and use it in the terminal:
+
 ```sh
-npx tc "1h + 30m"
+npm install -g alfred-time-calculator
+```
+
+Now you can run:
+
+```sh
+tc "1h + 30m"
 ```
 
 **Output:**
