@@ -235,12 +235,3 @@ To run tests:
 ```sh
 pnpm test
 ```
-
----
-
-## **👨‍💻 Author**
-
-- **Created by** [Shura Vlasov](https://github.com/shura-v), **with little help from** [Chat GPT](https://chatgpt.com/) 🤖
-- **GitHub:** [github.com/shura-v](https://github.com/shura-v)
-
-🚀 **Now you can calculate time expressions in Alfred, terminal, and Node.js!**
