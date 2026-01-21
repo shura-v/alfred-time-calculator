@@ -121,7 +121,7 @@ To test it locally before publishing, use:
 
 ```sh
 npm link
-``` 
+```
 
 This will make `tc` available without installing from NPM.
 
